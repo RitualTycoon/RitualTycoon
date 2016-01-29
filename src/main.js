@@ -1,22 +1,49 @@
+"use strict";
+
 var board = new Array();
+var buildings = [
+    new WaterTile(),
+    new GrassTile(),
+    new FieldTile()
+];
+var selected = [-1, -1];
+
+function selectTile(row, column) {
+    let selectedRow = board[selected[0]];
+    if (selectedRow) {
+        let selectedColum = selectedRow[selected[1]];
+        if (selectedColum) {
+            selectedColum.select();
+        }
+    }
+    if (row == selected[0] && column == selected[1]) {
+        selected = [-1, -1];
+    } else {
+        selected = [row, column];
+        board[row][column].select();
+    }
+}
 
 window.onload = function() {
     for (var i = 0; i < 16; i++) {
         var row = new Array();
         for (var j = 0; j < 16; j++) {
-            row.push(new WaterTile());
+            if (i + j < 5) {
+                row.push(new WaterTile(i, j));
+            } else {
+                row.push(new GrassTile(i, j));
+            }
         }
         board.push(row);
     }
     var grid = document.getElementById("grid");
-    table = document.createElement("table");
+    var table = document.createElement("table");
     for (var row in board) {
         var tr = document.createElement("tr");
         for (var column in board[row]) {
-            td = document.createElement("td");
-            img = document.createElement("img");
-            img.setAttribute("src", "assets/" + board[row][column].getImg());
-            td.appendChild(img);
+            var td = document.createElement("td");
+            var tile = board[row][column];
+            td.appendChild(tile.getImg());
             tr.appendChild(td);
         }
         table.appendChild(tr);
