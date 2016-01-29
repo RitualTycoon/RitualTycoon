@@ -4,7 +4,7 @@ var Q = Quintus({
     width: 800,
     height: 600,
     scaleToFit: true // Scale the game to fit the screen of the player's device
-}).include("Sprites, Scenes, Input").setup("gamecanvas");
+}).include("Sprites, Scenes, Input").setup("quintus");
 
 Q.gameLoop(function(dt) {
    Q.clear();
