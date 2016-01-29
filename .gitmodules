@@ -1,0 +1,3 @@
+[submodule "Quintus"]
+	path = Quintus
+	url = https://github.com/cykod/Quintus
