@@ -1,7 +1,8 @@
-var WaterTile = function () {
-    this.img = "test.png";
-};
+"use strict";
 
-WaterTile.prototype.getImg = function() {
-    return this.img;
-}
+class WaterTile extends Tile {
+    constructor(row, column) {
+        super("water1.png", row, column);
+        this.clickable = false;
+    }
+};

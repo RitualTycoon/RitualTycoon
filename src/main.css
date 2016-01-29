@@ -19,6 +19,12 @@
     background-color: #ddd;
     height: 100%;
 }
+#sidebar > #selection {
+    height: 50%;
+}
+#sidebar > #missions {
+    height: 50%;
+}
 tr, td, table {
     margin: 0;
     padding: 0;
@@ -28,7 +34,15 @@ tr, td, table {
 }
 table {
     margin-top: 40px;
+    margin-left: 300px;
 }
 #grid {
     transform-origin: top left;
+}
+img {
+    width: 64px;
+    height: 64px;
+}
+.selected {
+    opacity: 0.7;
 }
