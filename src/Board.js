@@ -42,6 +42,15 @@ class Board {
         }
         return new WaterTile(row, column, "00000000");
     }
+
+    setTile(row, column, newTile) {
+        let parentDom = this.getTile(row, column).parentDom;
+        newTile.parentDom = parentDom;
+        parentDom.removeChild(parentDom.firstChild);
+        parentDom.appendChild(newTile.getDOM());
+        this.board[row][column] = newTile;
+    }
+
     getAdjacentTiles(row,column){
         let list = [];
         for (let i = row-1;i<=row+1;i++){

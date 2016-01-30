@@ -3,6 +3,9 @@
 class HouseTile extends Tile {
     constructor(row, column) {
         super("wohnhaeuser.png", row, column);
-        this.clickable = true;
+    }
+
+    clone() {
+        return new HouseTile(this.row, this.column);
     }
 };

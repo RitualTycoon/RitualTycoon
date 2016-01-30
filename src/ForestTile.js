@@ -3,6 +3,5 @@
 class ForestTile extends Tile {
     constructor(row, column) {
         super("wald.png", row, column);
-        this.clickable = true;
     }
 };

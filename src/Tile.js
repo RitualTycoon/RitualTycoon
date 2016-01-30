@@ -9,6 +9,8 @@ class Tile {
         this.imgElement.setAttribute("src", "assets/" + this.img);
         this.isSelected = false;
         this._disabled = false;
+        this.link = document.createElement("a");
+        this.parentDom = null;
     }
 
     get disabled() {
@@ -21,13 +23,12 @@ class Tile {
     }
 
     getDOM() {
-        if (this.clickable) {
-            var link = document.createElement("a");
-            link.setAttribute("onclick",
+        if (this.link) {
+            this.link.setAttribute("onclick",
                 "javascript:selectTile(" + this.row + ", " + this.column + ");"
             );
-            link.appendChild(this.imgElement);
-            return link;
+            this.link.appendChild(this.imgElement);
+            return this.link;
         }
         return this.imgElement;
     }

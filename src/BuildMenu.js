@@ -25,6 +25,11 @@ class BuildMenu {
             table.appendChild(tr);
         }
         this.element.appendChild(table);
+        for (let i in this.tiles) {
+            this.tiles[i].link.setAttribute("onclick",
+                "javascript:build(" + i + ");"
+            );
+        }
     }
 
     setUpgrades(available) {
