@@ -3,10 +3,10 @@
 class Board {
     constructor(width,height) {
         this.board = new Array();
-        for (var i = 0; i < width; i++) {
+        for (var i = 0; i < width+1; i++) {
             var row = new Array();
-            for (var j = 0; j < height; j++) {
-                if (i + j < 5) {
+            for (var j = 0; j < height+1; j++) {
+                if(Math.floor(Math.sqrt((i-width/2)*(i-width/2)+(j-height/2)*(j-height/2))) > (width/2)-2){
                     row.push(new WaterTile(i, j));
                 } else {
                     row.push(new GrassTile(i, j));

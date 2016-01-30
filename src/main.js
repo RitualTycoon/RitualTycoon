@@ -1,6 +1,6 @@
 "use strict";
 
-var board = new Board(16,16);
+var board = new Board(18,18);
 var buildings = [
     new WaterTile(),
     new GrassTile(),
