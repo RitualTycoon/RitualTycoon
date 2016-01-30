@@ -16,19 +16,19 @@ class BuildMenu {
             for (let tile of row) {
                 let td = document.createElement("td");
                 //Tooltip inhalt
-                let span = document.createElement("div");
-                span.innerText += tile.tooltip_name;
+                let div = document.createElement("div");
+                div.innerText += tile.tooltip_name;
                 for (let key in tile.build_costs)
                 {
-                    span.innerText += "\n" + tile.build_costs[key] + "x " + key;
+                    div.innerText += "\n" + tile.build_costs[key] + "x " + key;
                 }
-                span.className = "tooltip";
+                div.className = "tooltip";
                 tile.disabled = true;
                 let dom = tile.getDOM();
                 this.tiles.push(tile);
                 this.domElements.push(dom);
                 td.appendChild(dom);
-                dom.appendChild(span);
+                dom.appendChild(div);
                 tr.appendChild(td);
             }
             table.appendChild(tr);
