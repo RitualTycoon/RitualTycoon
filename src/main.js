@@ -5,7 +5,7 @@ let board = new Board(19,19);
 let resources = {
     humansidle:  10,
     humansbusy:  0,
-    water:    0,
+    water:    10,
     wheat:  0,
     meat:     0,
     bananas:  0,
@@ -78,6 +78,12 @@ function build(index) {
     newTile.row = selected[0];
     newTile.column = selected[1];
     board.setTile(newTile);
+	//Baukosten abziehen
+	for (var key in newTile.build_costs)
+	{
+		resources[key] -=  newTile.build_costs[key]
+	}
+	//Select wieder zurück setzen
     selected = [-1, -1];
     selectTile(newTile.row, newTile.column);
 }

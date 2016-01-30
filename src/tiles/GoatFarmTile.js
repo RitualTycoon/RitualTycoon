@@ -3,6 +3,7 @@
 class GoatFarmTile extends Tile {
     constructor(row, column) {
         super("ziegenhof.gif", row, column);
+		this.build_costs = {water: 5};
         this.counter = 50;
     }
 
