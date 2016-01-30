@@ -2,10 +2,10 @@
 
 class Board {
     constructor(width,height) {
-        this.board = new Array();
-        for (var i = 0; i < width+1; i++) {
-            var row = new Array();
-            for (var j = 0; j < height+1; j++) {
+        this.board = [];
+        for (let i = 0; i < width+1; i++) {
+            let row = [];
+            for (let j = 0; j < height+1; j++) {
                 if(Math.floor(Math.sqrt((i-width/2)*(i-width/2)+(j-height/2)*(j-height/2))) > (width/2)-2){
                     row.push(new WaterTile(i, j));
                 } else {
@@ -14,16 +14,43 @@ class Board {
             }
             this.board.push(row);
         }
+        for (let i = 0; i < width+1; i++) {
+             for (let j = 0; j < height+1; j++) {
+                 let adjacent = "";
+                 if(this.getTile(i,j) instanceof WaterTile){
+                     for(let tile of this.getAdjacentTiles(i,j)){
+                         if(tile instanceof WaterTile){
+                             adjacent += "0";
+                         }
+                         else{
+                             adjacent += "1";
+                         }
+                     }
+                     this.board[i][j]= new WaterTile(i, j, adjacent);
+                 }
+             }
+         }
     }
 
     getTile(row,column){
-        let selectedRow = board.board[row];
+        let selectedRow = this.board[row];
         if (selectedRow) {
             let selectedColum = selectedRow[column];
             if (selectedColum) {
                 return selectedColum;
             }
         }
-        return null;
+        return new WaterTile(row,column);
+    }
+    getAdjacentTiles(row,column){
+        let list = [];
+        for (let i = row-1;i<=row+1;i++){
+            for(let j = column-1;j<=column+1;j++){
+                if(i!=row || j!=column){
+                    list.push(this.getTile(i,j));
+                }
+            }
+        }
+        return list
     }
 }

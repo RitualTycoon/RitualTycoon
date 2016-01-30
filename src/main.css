@@ -31,6 +31,9 @@ li {
     bottom: 0;
     overflow: auto;
 }
+::-webkit-scrollbar {
+    display: none;
+}
 #headerbar {
     padding: 8px 32px;
     position: fixed;
