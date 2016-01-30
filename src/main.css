@@ -65,6 +65,7 @@ tr, td, table {
     border-spacing: 0;
     border-collapse: collapse;
     line-height: 0;
+    vertical-align: top;
 }
 #grid table {
     background-color: white;
@@ -85,6 +86,14 @@ img {
 .selected {
     opacity: 0.75;
 }
-.selected:hover {
-    opacity: 0.65;
+div#vulkan {
+    position:relative;
+}
+div#vulkan > img {
+    position: absolute;
+    width: 512px;
+    height: 512px;
+}
+#grid a img.selected:hover {
+    opacity: 0.9;
 }

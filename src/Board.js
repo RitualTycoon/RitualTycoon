@@ -31,7 +31,17 @@ class Board {
                              adjacent += "1";
                          }
                      }
-                     this.board[i][j]= new WaterTile(i, j, adjacent);
+                     if(i==Math.ceil(width/2)-2&&j==Math.ceil(height/2)-2){
+                         let vulkan = new WaterTile(i, j, "Vulkan");
+                         let div = document.createElement("div");
+                         div.setAttribute("id", "vulkan");
+                         div.appendChild(vulkan.imgElement);
+                         vulkan.imgElement = div;
+                         this.board[i][j] = vulkan;
+                     }
+                     else{
+                         this.board[i][j]= new WaterTile(i, j, adjacent);
+                     }
                  }
              }
          }

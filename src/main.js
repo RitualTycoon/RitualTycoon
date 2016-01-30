@@ -1,12 +1,22 @@
 "use strict";
 
-var board = new Board(18,18);
-var buildings = [
-    new WaterTile(),
-    new GrassTile(),
-    new FieldTile()
-];
-var selected = [-1, -1];
+let board = new Board(19,19);
+
+let resources = {
+    humansidle:  10,
+    humansbusy:  0,
+    water:    0,
+    wheat:  0,
+    meat:     0,
+    bananas:  0,
+    crops:    0,
+    breads:   0,
+    monkeys: 0,
+    milk: 0,
+    goats: 0,
+};
+
+let selected = [-1, -1];
 
 let dragging = false;
 let startDragging = false;
@@ -54,6 +64,22 @@ function selectTile(row, column) {
     }
 }
 
+<<<<<<< HEAD
+=======
+function build(index) {
+    let clickedTile = buildMenu.tiles[index];
+    if (clickedTile.disabled) {
+        return;
+    }
+    let newTile = clickedTile.clone();
+    newTile.row = selected[0];
+    newTile.column = selected[1];
+    board.setTile(newTile);
+    selected = [-1, -1];
+    selectTile(newTile.row, newTile.column);
+}
+
+>>>>>>> 85fe123e8d36d11bfc422e7b53659506b17a323b
 window.onload = function() {
     var grid = document.getElementById("grid");
     var table = document.createElement("table");
@@ -69,6 +95,20 @@ window.onload = function() {
     }
     grid.appendChild(table);
 };
+
+setInterval(function() {
+    for (let row of board.board) {
+        for (let tile of row) {
+            let newResources = tile.step();
+            for (let newResource in newResources) {
+                resources[newResource] += newResources[newResource];
+            }
+        }
+    }
+    for (let resource in resources) {
+        document.getElementById(resource).textContent = resources[resource];
+    }
+}, 1000);
 
 document.addEventListener("keydown", function(e) {
     if (e.keyCode == 13) { // Enter
