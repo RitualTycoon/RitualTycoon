@@ -4,6 +4,7 @@ class ButcherTile extends Tile {
     constructor(row, column) {
         super("fleischer.gif", row, column);
 		this.build_costs = {water: 5};
+        this.tooltip_name = "BUTCHER";
         this.counter = 50;
     }
 

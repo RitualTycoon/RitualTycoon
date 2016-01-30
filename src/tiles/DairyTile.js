@@ -4,6 +4,7 @@ class DairyTile extends Tile {
     constructor(row, column) {
         super("molkerei.gif", row, column);
 		this.build_costs = {water: 5};
+        this.tooltip_name = "DAIRY";
         this.counter = 40;
     }
 
