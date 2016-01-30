@@ -56,9 +56,9 @@ class Tile {
 		{
 			if (resources[key] < this.build_costs[key])
 			{
-				return false;
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 }

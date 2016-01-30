@@ -3,6 +3,7 @@
 class FieldTile extends Tile {
     constructor(row, column) {
         super("weizenfarm.png", row, column);
+		this.build_costs = {water: 50};
         this.counter = 10;
     }
 
