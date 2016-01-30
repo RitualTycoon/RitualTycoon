@@ -2,18 +2,17 @@
 
 let board = new Board(19,19);
 
-let recources = 
-				{
-				humans: 10,
-				water: 0,
-				carrots: 10,
-				fish: 0,
-				bananas:0,
-				crops:0,
-				breads:0,
-				tomatoes:0,
-				
-				};
+let resources = {
+    humansidle:  10,
+    humansbusy:  0,
+    water:    0,
+    carrots:  0,
+    fish:     0,
+    bananas:  0,
+    crops:    0,
+    breads:   0,
+    tomatoes: 0,
+};
 
 let selected = [-1, -1];
 
@@ -92,6 +91,20 @@ window.onload = function() {
     }
     grid.appendChild(table);
 };
+
+setInterval(function() {
+    for (let row of board.board) {
+        for (let tile of row) {
+            let newResources = tile.step();
+            for (let newResource in newResources) {
+                resources[newResource] += newResources[newResource];
+            }
+        }
+    }
+    for (var resource in resources) {
+        document.getElementById(resource).textContent = resources[resource];
+    }
+}, 1000);
 
 document.addEventListener("keydown", function(e) {
     if (e.keyCode == 13) { // Enter
