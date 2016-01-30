@@ -64,8 +64,13 @@ tr, td, table {
     padding: 0;
     border-spacing: 0;
     border-collapse: collapse;
-    line-height: 0;
     vertical-align: top;
+}
+tr {
+    line-height: 0;
+}
+div {
+    line-height: 120%;
 }
 #grid table {
     background-color: white;
