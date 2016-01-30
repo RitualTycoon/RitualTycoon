@@ -25,6 +25,7 @@ let startY;
 let cancelDragging = false;
 
 let buildMenu = new BuildMenu();
+let missionsMenu = new MissionsMenu();
 
 document.getElementById("grid").addEventListener("mousemove", function(e) {
     if (startDragging &&

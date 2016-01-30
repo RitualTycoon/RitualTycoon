@@ -1,6 +1,8 @@
+"use strict";
+
 function getQuest()
 {
-	quest = {
+	let quest = {
 			humans: 0,
 			water: 0,
 			carrots: 0,
@@ -14,11 +16,11 @@ function getQuest()
 	//Die ein drittel der Karotten
 	if (resources['carrots'] > 50)
 	{
-		quest['carrots'] += resources['carrots'] / 3.0});
+		quest['carrots'] += resources['carrots'] / 3.0;
 	}
 
-	//Kosten steigen mit der Befölkerungszahl 
-	less humans = resources['humans'];
+	//Kosten steigen mit der Befölkerungszahl
+	let humans = resources['humansidle'] + resources['humansbusy'];
 	switch (true) {
 		case (humans < 10):
 			quest['carrots'] += 5;
@@ -29,8 +31,24 @@ function getQuest()
 		case (humans < 100):
 			quest['humans'] += 1;
 	}
+	let quest_text = "";
+	for (let text in quest)
+	{
+		if (quest[text] > 0)
+		quest_text += "\n" + quest[text] + "x " + text;
+	}
+
+	return quest_text;
+}
 
 
-
-	return quest;
+class MissionsMenu
+{
+		constructor()
+		{
+				this.element = document.getElementById("missions");
+				let div = document.createElement("div");
+				div.innerText += getQuest();
+				this.element.appendChild(div);
+		}
 }
