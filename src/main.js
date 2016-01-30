@@ -2,7 +2,18 @@
 
 let board = new Board(19,19);
 
-let recources = {};
+let recources = 
+				{
+				humans: 10,
+				water: 0,
+				carrots: 10,
+				fish: 0,
+				bananas:0,
+				crops:0,
+				breads:0,
+				tomatoes:0,
+				
+				};
 
 let selected = [-1, -1];
 
