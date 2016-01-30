@@ -29,7 +29,7 @@ li {
     left: 352px;
     right: 0;
     bottom: 0;
-    overflow: auto;
+    overflow: hidden;
 }
 #headerbar {
     padding: 8px 32px;
