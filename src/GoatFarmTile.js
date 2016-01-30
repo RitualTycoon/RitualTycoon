@@ -3,7 +3,7 @@
 class GoatFarmTile extends Tile {
     constructor(row, column) {
         super("ziegenhof.gif", row, column);
-        this.counter = 100;
+        this.counter = 50;
     }
 
     clone() {
@@ -15,7 +15,7 @@ class GoatFarmTile extends Tile {
         if (this.counter > 0) {
             return {};
         }
-        this.counter = 100;
+        this.counter = 50;
         return {
             "goats": 1,
         };
