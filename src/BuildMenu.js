@@ -4,7 +4,7 @@ class BuildMenu {
     constructor() {
         this.element = document.getElementById("buildmenu");
         let grid = [
-            [new HouseTile(), new ForestTile(), new GoatFarmTile(),],
+            [new GrassTile(), new HouseTile(), new GoatFarmTile(),],
             [new GrassTile(), new GrassTile(), new GrassTile(),],
             [new GrassTile(), new GrassTile(), new GrassTile(),],
         ];
