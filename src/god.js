@@ -32,22 +32,34 @@ function getQuest()
 			quest['humans'] += 1;
 	}
 	let div = document.createElement("div");
+	let table = document.createElement("table");
 	div.id = "quests";
 	for (let text in quest)
 	{
 		if (quest[text] > 0)
 		{
+			//Table
+			let tr = document.createElement("tr");
+			let td1 = document.createElement("td");
+			let td2 = document.createElement("td");
+			table.appendChild(tr);
+			tr.appendChild(td1);
+			tr.appendChild(td2);
+
+			//Opferbutton und Menschenopferbutton
 			let inner_div = document.createElement("div");
 			inner_div.id = "button";
 			inner_div.innerText = quest[text] + "x " + text;
 			let img = document.createElement("img");
 			img.id = "security_humans";
-			div.appendChild(inner_div);
-			div.appendChild(img);
+
+			//Buttons in die Tabelle einhengen
+			td1.appendChild(inner_div);
+			td2.appendChild(img);
 	}
 	}
 
-	return div;
+	return table;
 }
 
 
