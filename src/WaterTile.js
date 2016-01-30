@@ -1,7 +1,7 @@
 "use strict";
 
 class WaterTile extends Tile {
-    constructor(row, column, coast = "00000000") {
+    constructor(row, column, coast) {
         super("water" + coast + ".png", row, column);
         this.clickable = false;
     }
