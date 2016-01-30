@@ -133,7 +133,7 @@ div#vulkan > img {
 }
 
 .tooltip:hover {
-    z-index: -1000;
+    margin-top: -9999px; /* dirty hack to hide the tooltip */
 }
 
 /* tooltip ende */
