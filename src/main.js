@@ -14,6 +14,8 @@ let resources = {
     monkeys: 0,
     milk: 0,
     goats: 0,
+    beer: 0,
+    stew: 0,
 };
 
 let selected = [-1, -1];

@@ -9,7 +9,8 @@ class GrassTile extends Tile {
 
     getUpgrades() {
         return [new HouseTile(), new GoatFarmTile(), new FieldTile(), new ButcherTile(),
-             new DairyTile(), new WindmillTile(), new WellTile(), new BakeryTile()];
+             new DairyTile(), new WindmillTile(), new WellTile(), new BakeryTile(),
+            new BreweryTile(), new InnTile()];
     }
     clone() {
         return new GrassTile(this.row, this.column);
