@@ -1,8 +1,8 @@
 "use strict";
 
-class TenementTile extends Tile {
+class GoatFarmTile extends Tile {
     constructor(row, column) {
-        super("wohnhaueser.png", row, column);
+        super("ziegenhof.gif", row, column);
         this.clickable = true;
     }
 };

@@ -3,17 +3,23 @@
 class BuildMenu {
     constructor() {
         this.element = document.getElementById("buildmenu");
-        this.grid = [
-            [new HouseTile(), new HouseTile(), new HouseTile(),],
-            [new HouseTile(), new HouseTile(), new HouseTile(),],
-            [new HouseTile(), new HouseTile(), new HouseTile(),],
+        let grid = [
+            [new HouseTile(), new ForestTile(), new GoatFarmTile(),],
+            [new GrassTile(), new GrassTile(), new GrassTile(),],
+            [new GrassTile(), new GrassTile(), new GrassTile(),],
         ];
+        this.tiles = []
+        this.domElements = [];
         let table = document.createElement("table");
-        for (let row of this.grid) {
+        for (let row of grid) {
             let tr = document.createElement("tr");
             for (let tile of row) {
                 let td = document.createElement("td");
-                td.appendChild(tile.getDOM());
+                tile.disabled = true;
+                let dom = tile.getDOM();
+                this.tiles.push(tile);
+                this.domElements.push(dom);
+                td.appendChild(dom);
                 tr.appendChild(td);
             }
             table.appendChild(tr);
@@ -22,8 +28,10 @@ class BuildMenu {
     }
 
     setUpgrades(available) {
-        for (let tile of available) {
-            this.element.appendChild(tile.imgElement);
+        for (let availableTile of available) {
+            for (let tile of this.tiles) {
+                tile.disabled = (availableTile.constructor !== tile.constructor);
+            }
         }
     }
 };
