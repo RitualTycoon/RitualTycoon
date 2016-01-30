@@ -6,6 +6,9 @@ class GrassTile extends Tile {
     }
 
     getUpgrades() {
-        return [new HouseTile()];
+        return [new HouseTile(), new GoatFarmTile()];
+    }
+    clone() {
+        return new GrassTile(this.row, this.column);
     }
 };
