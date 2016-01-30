@@ -31,14 +31,23 @@ function getQuest()
 		case (humans < 100):
 			quest['humans'] += 1;
 	}
-	let quest_text = "";
+	let div = document.createElement("div");
+	div.id = "quests";
 	for (let text in quest)
 	{
 		if (quest[text] > 0)
-		quest_text += "\n" + quest[text] + "x " + text;
+		{
+			let inner_div = document.createElement("div");
+			inner_div.id = "button";
+			inner_div.innerText = quest[text] + "x " + text;
+			let img = document.createElement("img");
+			img.id = "security_humans";
+			div.appendChild(inner_div);
+			div.appendChild(img);
+	}
 	}
 
-	return quest_text;
+	return div;
 }
 
 
@@ -47,8 +56,6 @@ class MissionsMenu
 		constructor()
 		{
 				this.element = document.getElementById("missions");
-				let div = document.createElement("div");
-				div.innerText += getQuest();
-				this.element.appendChild(div);
+				this.element.appendChild(getQuest());
 		}
 }

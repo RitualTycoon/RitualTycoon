@@ -54,7 +54,22 @@ li {
 }
 #sidebar > #missions {
     margin-bottom: 384px;
+
 }
+#button
+{
+  border-radius: 5px;
+  border: 2px solid #73AD21;
+  padding: 15px;
+  width: 200px;
+  height: 15px;
+}
+#security_humans
+{
+  width: 49px;
+  height: 49px;
+}
+
 #sidebar > #buildmenu {
     position: absolute;
     bottom: 48px;
