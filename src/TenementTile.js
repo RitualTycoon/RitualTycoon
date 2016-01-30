@@ -1,8 +1,8 @@
 "use strict";
 
-class FieldTile extends Tile {
+class TenementTile extends Tile {
     constructor(row, column) {
-        super("karotten-feld.png", row, column);
+        super("wohnhaueser.png", row, column);
         this.clickable = true;
     }
 };

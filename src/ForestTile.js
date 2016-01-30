@@ -1,8 +1,8 @@
 "use strict";
 
-class FieldTile extends Tile {
+class ForestTile extends Tile {
     constructor(row, column) {
-        super("karotten-feld.png", row, column);
+        super("wald.png", row, column);
         this.clickable = true;
     }
 };
