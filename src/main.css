@@ -4,9 +4,6 @@
     color: #eee;
     font-family: 'Victor', sans-serif;
 }
-body {
-    background-color: #fff;
-}
 @font-face {
     font-family: "Victor";
     src: url('victor-pixel.woff') format('woff');
@@ -18,12 +15,21 @@ li {
     display: inline;
     margin-left: 32px;
 }
-#sidebar, #headerbar {
-    background-color: #222;
+#sidebar, #headerbar, body {
     font-size: 22pt;
+    overflow: auto;
+    background-color: #222;
 }
 .number {
     margin-right: 64px;
+}
+#grid {
+    position: absolute;
+    top: 48px;
+    left: 352px;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
 }
 #headerbar {
     padding: 8px 32px;
@@ -55,10 +61,7 @@ tr, td, table {
     border-spacing: 0;
     border-collapse: collapse;
     line-height: 0;
-}
-table {
-    margin-top: 48px;
-    margin-left: 352px;
+    background-color: white;
 }
 #grid {
     transform-origin: top left;
