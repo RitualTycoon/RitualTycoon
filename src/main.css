@@ -11,6 +11,13 @@ body {
     font-family: "Victor";
     src: url('victor-pixel.woff') format('woff');
 }
+ul {
+    list-style-type: none;
+}
+li {
+    display: inline;
+    margin-left: 32px;
+}
 #sidebar, #headerbar {
     background-color: #222;
     font-size: 22pt;
@@ -19,7 +26,7 @@ body {
     margin-right: 64px;
 }
 #headerbar {
-    padding: 16px;
+    padding: 8px 32px;
     position: fixed;
     top: 0;
     right: 0;
@@ -50,7 +57,7 @@ tr, td, table {
     line-height: 0;
 }
 table {
-    margin-top: 64px;
+    margin-top: 48px;
     margin-left: 352px;
 }
 #grid {
