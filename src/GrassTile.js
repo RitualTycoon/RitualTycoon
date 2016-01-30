@@ -2,7 +2,7 @@
 
 class GrassTile extends Tile {
     constructor(row, column) {
-        super("ziegenhof.gif", row, column);
+        super("grasland.png", row, column);
         this.clickable = true;
     }
 };
