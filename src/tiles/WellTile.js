@@ -2,7 +2,7 @@
 
 class WellTile extends Tile {
     constructor(row, column) {
-        super("molkerei.gif", row, column);
+        super("brunnen.gif", row, column);
         this.tooltip_name = "WELL";
         this.counter = 40;
     }
