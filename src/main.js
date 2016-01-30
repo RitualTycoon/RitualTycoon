@@ -5,7 +5,7 @@ let board = new Board(19,19);
 let resources = {
     humansidle:  10,
     humansbusy:  0,
-    water:    0,
+    water:    10,
     wheat:  0,
     meat:     0,
     bananas:  0,
