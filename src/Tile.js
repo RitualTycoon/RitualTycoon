@@ -22,6 +22,10 @@ class Tile {
         this.imgElement.setAttribute("style", d ? "opacity: 0.7" : "");
     }
 
+    step() {
+        return {};
+    }
+
     getDOM() {
         if (this.link) {
             this.link.setAttribute("onclick",
