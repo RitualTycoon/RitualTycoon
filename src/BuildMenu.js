@@ -7,6 +7,7 @@ class BuildMenu {
             [new GrassTile(), new HouseTile(), new GoatFarmTile(),],
             [new FieldTile(), new ButcherTile(), new DairyTile(),],
             [new WindmillTile(), new WellTile(), new GrassTile(),],
+            [new GrassTile(), new GrassTile(), new GrassTile(),],
         ];
         this.tiles = []
         this.domElements = [];
