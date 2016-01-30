@@ -14,7 +14,7 @@ class Tile {
         this.imgElement.setAttribute("src", "assets/" + this.img);
         if (this.clickable) {
             var link = document.createElement("a");
-            link.setAttribute("href",
+            link.setAttribute("onclick",
                 "javascript:selectTile(" + this.row + ", " + this.column + ");"
             );
             link.appendChild(this.imgElement);

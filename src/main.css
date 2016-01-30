@@ -1,25 +1,37 @@
 * {
     padding: 0;
     margin: 0;
-    color: #797979;
+    color: #eee;
+    font-family: 'Victor', sans-serif;
+}
+body {
+    background-color: #fff;
+}
+@font-face {
+    font-family: "Victor";
+    src: url('victor-pixel.woff') format('woff');
+}
+#sidebar, #headerbar {
+    background-color: #222;
+    font-size: 22pt;
 }
 #headerbar {
-    background-color: #ddd;
-    padding: 10px;
+    padding: 16px;
     position: fixed;
     top: 0;
-    height: 20px;
-    width: 100%;
+    right: 0;
+    left: 0;
+    height: 32px;
     z-index: 10;
-    /*box-shadow: 0px 0px 5px black;*/
+    text-align: right;
 }
 #sidebar {
-    width: 300px;
+    width: 320px;
     position: fixed;
     left: 0;
-    background-color: #ddd;
     height: 100%;
     z-index: 10;
+    padding: 16px;
 }
 #sidebar > #selection {
     height: 50%;
@@ -35,23 +47,18 @@ tr, td, table {
     line-height: 0;
 }
 table {
-    margin-top: 40px;
-    margin-left: 300px;
+    margin-top: 64px;
+    margin-left: 352px;
 }
 #grid {
     transform-origin: top left;
 }
 img {
-    width: 64px;
-    height: 64px;
-    image-rendering:optimizeSpeed;             /* Legal fallback */
-    image-rendering:-moz-crisp-edges;          /* Firefox        */
-    image-rendering:-o-crisp-edges;            /* Opera          */
-    image-rendering:-webkit-optimize-contrast; /* Safari         */
-    image-rendering:optimize-contrast;         /* CSS3 Proposed  */
-    image-rendering:crisp-edges;               /* CSS4 Proposed  */
-    image-rendering:pixelated;                 /* CSS4 Proposed  */
-    -ms-interpolation-mode:nearest-neighbor;   /* IE8+           */
+    width: 128px;
+    height: 128px;
+    image-rendering:-moz-crisp-edges; /* Firefox */
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
 }
 .selected {
     opacity: 0.7;
