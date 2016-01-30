@@ -33,9 +33,14 @@ class BuildMenu {
     }
 
     setUpgrades(available) {
+        for (let tile of this.tiles) {
+            tile.disabled = true;
+        }
         for (let availableTile of available) {
             for (let tile of this.tiles) {
-                tile.disabled = (availableTile.constructor !== tile.constructor);
+                if (availableTile.constructor === tile.constructor) {
+                    tile.disabled = false;
+                }
             }
         }
     }
