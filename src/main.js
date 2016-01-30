@@ -6,12 +6,14 @@ let resources = {
     humansidle:  10,
     humansbusy:  0,
     water:    0,
-    carrots:  0,
-    fish:     0,
+    wheat:  0,
+    meat:     0,
     bananas:  0,
     crops:    0,
     breads:   0,
-    tomatoes: 0,
+    monkeys: 0,
+    milk: 0,
+    goats: 0,
 };
 
 let selected = [-1, -1];
@@ -105,7 +107,7 @@ setInterval(function() {
             }
         }
     }
-    for (var resource in resources) {
+    for (let resource in resources) {
         document.getElementById(resource).textContent = resources[resource];
     }
 }, 1000);
