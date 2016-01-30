@@ -3,8 +3,9 @@
 class GoatFarmTile extends Tile {
     constructor(row, column) {
         super("ziegenhof.gif", row, column);
-        this.count = 100;
+        this.counter = 100;
     }
+
     clone() {
         return new GoatFarmTile(this.row, this.column);
     }
