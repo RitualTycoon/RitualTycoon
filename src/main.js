@@ -9,7 +9,7 @@ let resources = {
     wheat:  0,
     meat:     0,
     bananas:  0,
-    crops:    0,
+    flour:    0,
     breads:   0,
     monkeys: 0,
     milk: 0,

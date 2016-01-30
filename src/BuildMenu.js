@@ -6,7 +6,7 @@ class BuildMenu {
         let grid = [
             [new GrassTile(), new HouseTile(), new GoatFarmTile(),],
             [new FieldTile(), new ButcherTile(), new DairyTile(),],
-            [new GrassTile(), new GrassTile(), new GrassTile(),],
+            [new WindmillTile(), new GrassTile(), new GrassTile(),],
         ];
         this.tiles = []
         this.domElements = [];
@@ -15,10 +15,12 @@ class BuildMenu {
             let tr = document.createElement("tr");
             for (let tile of row) {
                 let td = document.createElement("td");
-				let span = document.createElement("span");
+				//Tooltip inhalt
+				let span = document.createElement("div");
+				span.innerHTML += tile.tooltip_name;
 				for (let key in tile.build_costs)
 				{
-					span.innerHTML += tile.build_costs[key] + "x " + key;
+					span.innerHTML += "<br/>" + tile.build_costs[key] + "x " + key;
 				}
 				span.className = "tooltip";
                 tile.disabled = true;
