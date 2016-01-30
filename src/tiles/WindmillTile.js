@@ -4,6 +4,7 @@ class WindmillTile extends Tile {
     constructor(row, column) {
         super("muele.gif", row, column);
 		this.build_costs = {water: 5};
+        this.tooltip_name = "wINDMILL";
         this.counter = 40;
     }
 

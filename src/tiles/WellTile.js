@@ -1,15 +1,14 @@
 "use strict";
 
-class DairyTile extends Tile {
+class WellTile extends Tile {
     constructor(row, column) {
         super("molkerei.gif", row, column);
-		this.build_costs = {water: 5};
-        this.tooltip_name = "DAIRY";
+        this.tooltip_name = "WELL";
         this.counter = 40;
     }
 
     clone() {
-        return new DairyTile(this.row, this.column);
+        return new WellTile(this.row, this.column);
     }
 
     step() {
@@ -18,10 +17,8 @@ class DairyTile extends Tile {
             return {};
         }
         this.counter = 40;
-        if(resources['goats']>0){
-            return {
-                "milk": 2,
-            };
-        }
+        return {
+            "water": 5,
+        };
     }
 };
