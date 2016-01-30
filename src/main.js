@@ -80,7 +80,7 @@ function build(index) {
     newTile.column = selected[1];
     board.setTile(newTile);
 	//Baukosten abziehen
-	for (var key in newTile.build_costs)
+	for (let key in newTile.build_costs)
 	{
 		resources[key] -=  newTile.build_costs[key]
 	}
