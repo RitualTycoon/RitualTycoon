@@ -29,7 +29,10 @@ li {
     left: 352px;
     right: 0;
     bottom: 0;
-    overflow: hidden;
+    overflow: auto;
+}
+::-webkit-scrollbar {
+    display: none;
 }
 #headerbar {
     padding: 8px 32px;
