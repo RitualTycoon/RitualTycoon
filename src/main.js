@@ -1,12 +1,10 @@
 "use strict";
 
-var board = new Board(18,18);
-var buildings = [
-    new WaterTile(),
-    new GrassTile(),
-    new FieldTile()
-];
-var selected = [-1, -1];
+let board = new Board(18,18);
+
+let recources = {};
+
+let selected = [-1, -1];
 
 let dragging = false;
 let startDragging = false;
