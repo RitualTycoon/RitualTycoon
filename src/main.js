@@ -1,29 +1,18 @@
 "use strict";
 
-let board = new Board(19,19);
-
-let recources = 
-				{
-				humans: 10,
-				water: 0,
-				carrots: 10,
-				fish: 0,
-				bananas:0,
-				crops:0,
-				breads:0,
-				tomatoes:0,
-				
-				};
-
-let selected = [-1, -1];
+var board = new Board(18,18);
+var buildings = [
+    new WaterTile(),
+    new GrassTile(),
+    new FieldTile()
+];
+var selected = [-1, -1];
 
 let dragging = false;
 let startDragging = false;
 let startX;
 let startY;
 let cancelDragging = false;
-
-let buildMenu = new BuildMenu();
 
 document.getElementById("grid").addEventListener("mousemove", function(e) {
     if (startDragging &&
@@ -54,38 +43,26 @@ function selectTile(row, column) {
         return;
     }
     let tile = board.getTile(selected[0], selected[1]);
-    if (!(tile instanceof WaterTile)) {
+    if (tile){
         tile.select();
     }
     if (row == selected[0] && column == selected[1]) {
         selected = [-1, -1];
     } else {
         selected = [row, column];
-        let tile = board.getTile(row, column);
-        tile.select();
-        buildMenu.setUpgrades(tile.getUpgrades());
-        //console.log(board.getTile(row, column).canUpgradeTo());
+        board.board[row][column].select();
     }
 }
 
-function build(index) {
-    let newTile = buildMenu.tiles[index].clone();
-    newTile.row = selected[0];
-    newTile.column = selected[1];
-    board.setTile(newTile);
-    selected = [-1, -1];
-    selectTile(newTile.row, newTile.column);
-}
-
 window.onload = function() {
-    let grid = document.getElementById("grid");
-    let table = document.createElement("table");
-    for (let row of board.board) {
-        let tr = document.createElement("tr");
-        for (let tile of row) {
-            let td = document.createElement("td");
-            td.appendChild(tile.getDOM());
-            tile.parentDom = td;
+    var grid = document.getElementById("grid");
+    var table = document.createElement("table");
+    for (var row in board.board) {
+        var tr = document.createElement("tr");
+        for (var column in board.board[row]) {
+            var td = document.createElement("td");
+            var tile = board.board[row][column];
+            td.appendChild(tile.getImg());
             tr.appendChild(td);
         }
         table.appendChild(tr);
