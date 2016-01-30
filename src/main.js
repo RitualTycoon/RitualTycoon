@@ -43,7 +43,7 @@ function selectTile(row, column) {
         return;
     }
     let tile = board.getTile(selected[0], selected[1]);
-    if (tile){
+    if (!(tile instanceof WaterTile)) {
         tile.select();
     }
     if (row == selected[0] && column == selected[1]) {
