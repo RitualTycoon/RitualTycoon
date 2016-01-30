@@ -52,7 +52,7 @@ class Tile {
     }
 	checkBuildCost()
 	{
-		for (var key in this.build_costs)
+		for (let key in this.build_costs)
 		{
 			if (resources[key] < this.build_costs[key])
 			{

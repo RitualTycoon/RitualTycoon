@@ -97,3 +97,19 @@ div#vulkan > img {
 #grid a img.selected:hover {
     opacity: 0.9;
 }
+
+/* tooltip */
+.totooltip:hover .tooltip {
+    display: block;
+}
+
+.tooltip {
+    display: none;
+    background: #403B3B;
+    margin-left: 28px;
+    padding: 10px;
+    position: fixed;
+    z-index: 1000;
+}
+
+/* tooltip ende */
