@@ -1,0 +1,4 @@
+{
+  "cmd": "WID=$(xdotool search --name 'Firefox Developer Edition' | head -1) && xdotool windowactivate $WID && xdotool key F5",
+  "shell": true
+}
