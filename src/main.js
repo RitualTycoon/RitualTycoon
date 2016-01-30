@@ -14,6 +14,8 @@ let resources = {
     monkeys: 0,
     milk: 0,
     goats: 0,
+    beer: 0,
+    stew: 0,
 };
 
 let selected = [-1, -1];
@@ -80,7 +82,7 @@ function build(index) {
     newTile.column = selected[1];
     board.setTile(newTile);
 	//Baukosten abziehen
-	for (var key in newTile.build_costs)
+	for (let key in newTile.build_costs)
 	{
 		resources[key] -=  newTile.build_costs[key]
 	}
