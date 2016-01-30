@@ -59,7 +59,9 @@ function selectTile(row, column) {
 
 function build(index) {
     let newTile = buildMenu.tiles[index].clone();
-    board.setTile(selected[0], selected[1], newTile);
+    newTile.row = selected[0];
+    newTile.column = selected[1];
+    board.setTile(newTile);
     selected = [-1, -1];
     selectTile(newTile.row, newTile.column);
 }
