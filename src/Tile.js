@@ -11,6 +11,7 @@ class Tile {
         this._disabled = false;
         this.link = document.createElement("a");
         this.parentDom = null;
+		this.build_costs = [];
     }
 
     get disabled() {
@@ -49,4 +50,15 @@ class Tile {
     getUpgrades() {
         return ["none"];
     }
+	checkBuildCost()
+	{
+		for (var key in this.build_costs)
+		{
+			if (resources[key] < this.build_costs[key])
+			{
+				return false;
+			}
+		}
+		return true;
+	}
 }

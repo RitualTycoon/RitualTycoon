@@ -39,7 +39,7 @@ class BuildMenu {
         for (let availableTile of available) {
             for (let tile of this.tiles) {
                 if (availableTile.constructor === tile.constructor) {
-                    tile.disabled = false;
+                    tile.disabled = tile.checkBuildCost();
                 }
             }
         }

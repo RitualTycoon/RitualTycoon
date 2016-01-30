@@ -68,10 +68,16 @@ function selectTile(row, column) {
 }
 
 function build(index) {
+	//Check if we can build this item. (Nicht ausgegraut)
+	if (buildMenu.tiles[index].disabled) return;
+	//Bauen
     let newTile = buildMenu.tiles[index].clone();
     newTile.row = selected[0];
     newTile.column = selected[1];
     board.setTile(newTile);
+	//Baukosten abziehen
+
+	//Select wieder zurück setzen
     selected = [-1, -1];
     selectTile(newTile.row, newTile.column);
 }
