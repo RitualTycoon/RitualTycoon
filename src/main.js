@@ -1,6 +1,6 @@
 "use strict";
 
-let board = new Board(18,18);
+let board = new Board(19,19);
 
 let recources = {};
 

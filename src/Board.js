@@ -6,10 +6,15 @@ class Board {
         for (let i = 0; i < width+1; i++) {
             let row = [];
             for (let j = 0; j < height+1; j++) {
-                if(Math.floor(Math.sqrt((i-width/2)*(i-width/2)+(j-height/2)*(j-height/2))) > (width/2)-2){
+                if(Math.floor(Math.sqrt((i-width/2)*(i-width/2)+(j-height/2)*(j-height/2))) > (width/2)-2 || Math.abs(i-width/2)< 2&&Math.abs(j-height/2) < 2){
                     row.push(new WaterTile(i, j, "00000000"));
                 } else {
-                    row.push(new GrassTile(i, j));
+                    if(Math.random() > 0.8){
+                        row.push(new GrassTile(i, j));
+                    }
+                    else{
+                        row.push(new ForestTile(i, j));
+                    }
                 }
             }
             this.board.push(row);
