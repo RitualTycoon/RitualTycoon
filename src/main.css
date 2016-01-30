@@ -15,6 +15,9 @@ body {
     background-color: #222;
     font-size: 22pt;
 }
+.number {
+    margin-right: 64px;
+}
 #headerbar {
     padding: 16px;
     position: fixed;
@@ -60,7 +63,12 @@ img {
     image-rendering: crisp-edges;
     image-rendering: pixelated;
 }
+a img:hover {
+    opacity: 0.9;
+}
 .selected {
-    opacity: 0.7;
-    transform-style: flat;
+    opacity: 0.75;
+}
+.selected:hover {
+    opacity: 0.65;
 }
