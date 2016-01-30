@@ -68,6 +68,15 @@ function selectTile(row, column) {
     }
 }
 
+function build(index) {
+    let newTile = buildMenu.tiles[index].clone();
+    newTile.row = selected[0];
+    newTile.column = selected[1];
+    board.setTile(newTile);
+    selected = [-1, -1];
+    selectTile(newTile.row, newTile.column);
+}
+
 window.onload = function() {
     let grid = document.getElementById("grid");
     let table = document.createElement("table");
@@ -76,6 +85,7 @@ window.onload = function() {
         for (let tile of row) {
             let td = document.createElement("td");
             td.appendChild(tile.getDOM());
+            tile.parentDom = td;
             tr.appendChild(td);
         }
         table.appendChild(tr);

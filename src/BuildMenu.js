@@ -4,7 +4,7 @@ class BuildMenu {
     constructor() {
         this.element = document.getElementById("buildmenu");
         let grid = [
-            [new HouseTile(), new ForestTile(), new GoatFarmTile(),],
+            [new GrassTile(), new HouseTile(), new GoatFarmTile(),],
             [new GrassTile(), new GrassTile(), new GrassTile(),],
             [new GrassTile(), new GrassTile(), new GrassTile(),],
         ];
@@ -25,12 +25,22 @@ class BuildMenu {
             table.appendChild(tr);
         }
         this.element.appendChild(table);
+        for (let i in this.tiles) {
+            this.tiles[i].link.setAttribute("onclick",
+                "javascript:build(" + i + ");"
+            );
+        }
     }
 
     setUpgrades(available) {
+        for (let tile of this.tiles) {
+            tile.disabled = true;
+        }
         for (let availableTile of available) {
             for (let tile of this.tiles) {
-                tile.disabled = (availableTile.constructor !== tile.constructor);
+                if (availableTile.constructor === tile.constructor) {
+                    tile.disabled = false;
+                }
             }
         }
     }

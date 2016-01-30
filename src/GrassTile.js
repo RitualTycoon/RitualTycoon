@@ -3,10 +3,12 @@
 class GrassTile extends Tile {
     constructor(row, column) {
         super("grasland.png", row, column);
-        this.clickable = true;
     }
 
     getUpgrades() {
-        return [new HouseTile()];
+        return [new HouseTile(), new GoatFarmTile()];
+    }
+    clone() {
+        return new GrassTile(this.row, this.column);
     }
 };

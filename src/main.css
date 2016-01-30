@@ -79,7 +79,7 @@ img {
     image-rendering: crisp-edges;
     image-rendering: pixelated;
 }
-a img:hover {
+#grid a img:hover {
     opacity: 0.9;
 }
 .selected {

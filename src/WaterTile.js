@@ -3,6 +3,6 @@
 class WaterTile extends Tile {
     constructor(row, column, coast) {
         super("water" + coast + ".png", row, column);
-        this.clickable = false;
+        this.link = null;
     }
 };
