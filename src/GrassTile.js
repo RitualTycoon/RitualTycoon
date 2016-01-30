@@ -5,4 +5,8 @@ class GrassTile extends Tile {
         super("grasland.png", row, column);
         this.clickable = true;
     }
+
+    getUpgrades() {
+        return [new HouseTile()];
+    }
 };

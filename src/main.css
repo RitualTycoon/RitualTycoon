@@ -26,7 +26,7 @@ li {
 #grid {
     position: absolute;
     top: 48px;
-    left: 352px;
+    left: 416px;
     right: 0;
     bottom: 0;
     overflow: auto;
@@ -45,18 +45,19 @@ li {
     text-align: right;
 }
 #sidebar {
-    width: 320px;
+    width: 384px;
     position: fixed;
     left: 0;
     height: 100%;
     z-index: 10;
     padding: 16px;
 }
-#sidebar > #selection {
-    height: 50%;
-}
 #sidebar > #missions {
-    height: 50%;
+    margin-bottom: 384px;
+}
+#sidebar > #buildmenu {
+    position: absolute;
+    bottom: 48px;
 }
 tr, td, table {
     margin: 0;

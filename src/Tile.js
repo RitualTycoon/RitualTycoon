@@ -5,13 +5,12 @@ class Tile {
         this.img = image;
         this.row = row;
         this.column = column;
-        this.imgElement = null;
+        this.imgElement = document.createElement("img");
+        this.imgElement.setAttribute("src", "assets/" + this.img);
         this.isSelected = false;
     }
 
-    getImg() {
-        this.imgElement = document.createElement("img");
-        this.imgElement.setAttribute("src", "assets/" + this.img);
+    getDOM() {
         if (this.clickable) {
             var link = document.createElement("a");
             link.setAttribute("onclick",
@@ -30,5 +29,9 @@ class Tile {
             this.imgElement.setAttribute("class", "selected");
         }
         this.isSelected = !this.isSelected;
+    }
+
+    getUpgrades() {
+        return ["none"];
     }
 }
