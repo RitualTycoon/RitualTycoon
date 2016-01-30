@@ -6,12 +6,14 @@ let resources = {
     humansidle:  10,
     humansbusy:  0,
     water:    0,
-    carrots:  0,
-    fish:     0,
+    wheat:  0,
+    meat:     0,
     bananas:  0,
     crops:    0,
     breads:   0,
-    tomatoes: 0,
+    monkeys: 0,
+    milk: 0,
+    goats: 0,
 };
 
 let selected = [-1, -1];
@@ -68,10 +70,11 @@ function selectTile(row, column) {
 }
 
 function build(index) {
-	//Check if we can build this item. (Nicht ausgegraut)
-	if (buildMenu.tiles[index].disabled) return;
-	//Bauen
-    let newTile = buildMenu.tiles[index].clone();
+    let clickedTile = buildMenu.tiles[index];
+    if (clickedTile.disabled) {
+        return;
+    }
+    let newTile = clickedTile.clone();
     newTile.row = selected[0];
     newTile.column = selected[1];
     board.setTile(newTile);
@@ -107,7 +110,7 @@ setInterval(function() {
             }
         }
     }
-    for (var resource in resources) {
+    for (let resource in resources) {
         document.getElementById(resource).textContent = resources[resource];
     }
 }, 1000);
