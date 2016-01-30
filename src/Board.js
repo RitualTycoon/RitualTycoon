@@ -32,7 +32,7 @@ class Board {
          }
     }
 
-    getTile(row,column){
+    getTile(row, column) {
         let selectedRow = this.board[row];
         if (selectedRow) {
             let selectedColum = selectedRow[column];

@@ -14,6 +14,8 @@ let startX;
 let startY;
 let cancelDragging = false;
 
+let buildMenu = new BuildMenu();
+
 document.getElementById("grid").addEventListener("mousemove", function(e) {
     if (startDragging &&
         Math.pow(startX - e.clientX, 2) + Math.pow(startY - e.clientY, 2) > 512) {
@@ -50,19 +52,21 @@ function selectTile(row, column) {
         selected = [-1, -1];
     } else {
         selected = [row, column];
-        board.board[row][column].select();
+        let tile = board.getTile(row, column);
+        tile.select();
+        buildMenu.setUpgrades(tile.getUpgrades());
+        //console.log(board.getTile(row, column).canUpgradeTo());
     }
 }
 
 window.onload = function() {
-    var grid = document.getElementById("grid");
-    var table = document.createElement("table");
-    for (var row in board.board) {
-        var tr = document.createElement("tr");
-        for (var column in board.board[row]) {
-            var td = document.createElement("td");
-            var tile = board.board[row][column];
-            td.appendChild(tile.getImg());
+    let grid = document.getElementById("grid");
+    let table = document.createElement("table");
+    for (let row of board.board) {
+        let tr = document.createElement("tr");
+        for (let tile of row) {
+            let td = document.createElement("td");
+            td.appendChild(tile.getDOM());
             tr.appendChild(td);
         }
         table.appendChild(tr);
