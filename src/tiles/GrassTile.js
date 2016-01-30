@@ -3,6 +3,8 @@
 class GrassTile extends Tile {
     constructor(row, column) {
         super("grasland.png", row, column);
+		this.build_costs = {water: 50};
+		this.tooltip_name = "GRASS";
     }
 
     getUpgrades() {

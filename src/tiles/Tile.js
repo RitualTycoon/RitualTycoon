@@ -12,6 +12,7 @@ class Tile {
         this.link = document.createElement("a");
         this.parentDom = null;
 		this.build_costs = [];
+		this.tooltip_name = "TODO!!!";
     }
 
     get disabled() {
