@@ -4,8 +4,8 @@ class BuildMenu {
     constructor() {
         this.element = document.getElementById("buildmenu");
         let grid = [
-            [new FieldTile(), new HouseTile(), new GoatFarmTile(),],
-            [new GrassTile(), new GrassTile(), new GrassTile(),],
+            [new GrassTile(), new HouseTile(), new GoatFarmTile(),],
+            [new FieldTile(), new ButcherTile(), new GrassTile(),],
             [new GrassTile(), new GrassTile(), new GrassTile(),],
         ];
         this.tiles = []
@@ -15,11 +15,18 @@ class BuildMenu {
             let tr = document.createElement("tr");
             for (let tile of row) {
                 let td = document.createElement("td");
+				let span = document.createElement("span");
+				for (let key in tile.build_costs)
+				{
+					span.innerHTML += tile.build_costs[key] + "x " + key;
+				}
+				span.className = "tooltip";
                 tile.disabled = true;
                 let dom = tile.getDOM();
                 this.tiles.push(tile);
                 this.domElements.push(dom);
                 td.appendChild(dom);
+				dom.appendChild(span);
                 tr.appendChild(td);
             }
             table.appendChild(tr);
@@ -28,6 +35,9 @@ class BuildMenu {
         for (let i in this.tiles) {
             this.tiles[i].link.setAttribute("onclick",
                 "javascript:build(" + i + ");"
+            );
+            this.tiles[i].link.setAttribute("class",
+                "totooltip"
             );
         }
     }
