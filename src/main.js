@@ -8,7 +8,40 @@ var buildings = [
 ];
 var selected = [-1, -1];
 
+let dragging = false;
+let startDragging = false;
+let startX;
+let startY;
+let cancelDragging = false;
+
+document.getElementById("grid").addEventListener("mousemove", function(e) {
+    if (startDragging &&
+        Math.pow(startX - e.clientX, 2) + Math.pow(startY - e.clientY, 2) > 512) {
+        startDragging = false;
+        dragging = true;
+    }
+    if (cancelDragging) {
+        startDragging = false;
+        cancelDragging = false;
+        dragging = false;
+    }
+    e.target.setAttribute("style", dragging ? "cursor: move" : "");
+});
+
+document.getElementById("grid").addEventListener("mouseup", function(e) {
+    cancelDragging = true;
+});
+
+document.getElementById("grid").addEventListener("mousedown", function(e) {
+    startDragging = true;
+    startX = e.clientX;
+    startY = e.clientY;
+});
+
 function selectTile(row, column) {
+    if (dragging) {
+        return;
+    }
     let tile = board.getTile(selected[0], selected[1]);
     if (tile){
         tile.select();
