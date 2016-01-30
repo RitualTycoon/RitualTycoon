@@ -65,6 +65,8 @@ tr, td, table {
     border-spacing: 0;
     border-collapse: collapse;
     line-height: 0;
+}
+#grid table {
     background-color: white;
 }
 #grid {

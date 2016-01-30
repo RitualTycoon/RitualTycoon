@@ -8,6 +8,16 @@ class Tile {
         this.imgElement = document.createElement("img");
         this.imgElement.setAttribute("src", "assets/" + this.img);
         this.isSelected = false;
+        this._disabled = false;
+    }
+
+    get disabled() {
+        return this._disabled;
+    }
+
+    set disabled(d) {
+        this._disabled = d;
+        this.imgElement.setAttribute("style", d ? "opacity: 0.7" : "");
     }
 
     getDOM() {
