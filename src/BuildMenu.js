@@ -6,7 +6,7 @@ class BuildMenu {
         let grid = [
             [new GrassTile(), new HouseTile(), new GoatFarmTile(),],
             [new FieldTile(), new ButcherTile(), new DairyTile(),],
-            [new GrassTile(), new GrassTile(), new GrassTile(),],
+            [new WindmillTile(), new GrassTile(), new GrassTile(),],
         ];
         this.tiles = []
         this.domElements = [];
