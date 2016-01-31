@@ -102,7 +102,6 @@ function build(index) {
     }
     let newTile = clickedTile.clone();
     newTile.row = selected[0];
-    console.log("ahskdja" + selected[0]);
     newTile.column = selected[1];
     board.setTile(newTile);
 	//Baukosten abziehen
