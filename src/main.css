@@ -120,6 +120,15 @@ img {
     opacity: 0.2;
 }
 
+progress {
+    background-color: darkgrey;
+    color: darkred;
+    border: 0;
+    border-radius: 5px;
+    width: 100%;
+    height: 40px;
+}
+
 div#vulkan {
     position:relative;
 }
@@ -140,10 +149,14 @@ div#vulkan > img {
 .tooltip {
     display: none;
     background: #403B3B;
-    margin-top: -216px;
+    margin-bottom: 2px;
     padding: 10px;
     position: fixed;
     z-index: 1000;
+}
+div.tooltip {
+    bottom: -2px;
+    left: 416px;
 }
 
 .tooltip:hover {
