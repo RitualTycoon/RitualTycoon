@@ -102,7 +102,7 @@ function build(index) {
     let newTile = clickedTile.clone();
     newTile.row = selected[0];
     newTile.column = selected[1];
-    board.setTile(newTile);
+    board.setTile(new ConstructionTile(newTile));
 	//Baukosten abziehen
 	for (let key in newTile.build_costs)
 	{
