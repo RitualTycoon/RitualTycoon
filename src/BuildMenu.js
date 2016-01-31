@@ -97,14 +97,14 @@ class BuildMenu {
 
     setUpgrades(clicked_tile) {
         let available = clicked_tile.getUpgrades()
-        console.log(clicked_tile.row);
+        // console.log(clicked_tile.row);
         for (let tile of this.tiles) {
             tile.disabled = true;
         }
         for (let availableTile of available) {
             for (let tile of this.tiles) {
                 if (availableTile.constructor === tile.constructor) {
-                    tile.disabled = tile.checkBuildCost() || (!this.isNeighborProductionAvalible(clicked_tile));
+                    tile.disabled = !this.isNeighborProductionAvalible(clicked_tile);
                     //console.log(tile.tooltip_name + tile.checkBuildCost() + !this.isNeighborProductionAvalible(clicked_tile) + " "+ (tile.checkBuildCost() || (!this.isNeighborProductionAvalible(tile))))
                 }
             }

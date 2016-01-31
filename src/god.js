@@ -94,7 +94,7 @@ class Quests {
         while (this._questValue < this._difficulty) {
             let demand = randomProperty(foodValue);
             let demandValue = foodValue[demand];
-            console.log('god demands: '+demand + ' value: '+demandValue)
+            // console.log('god demands: '+demand + ' value: '+demandValue)
             //if ((this._questValue + demandValue) > this._difficulty) break;
             if(demandValue*10 > this._questValue) continue;
             this._questValue += demandValue;

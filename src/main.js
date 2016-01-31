@@ -96,7 +96,7 @@ function selectTile(row, column) {
 
 function build(index) {
     let clickedTile = buildMenu.tiles[index];
-    if (clickedTile.disabled) {
+    if (clickedTile.disabled || clickedTile.checkBuildCost()) {
         return;
     }
     let newTile = clickedTile.clone();
