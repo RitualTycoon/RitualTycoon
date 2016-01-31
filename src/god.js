@@ -2,10 +2,10 @@
 class Quests {
     constructor() {
         this._difficulty = 5;
-        this._quest = {water: 5};
-        this._questValue = 5;
-        this._timer = 100;
-        this._timerMax = 100;
+        this._quest = {water: this._difficulty};
+        this._questValue = this._difficulty;
+        this._timerMax = 60;
+        this._timer = this._timerMax;
         this._element = document.getElementById("missions");
         this.newQuest();
     }
@@ -15,18 +15,6 @@ class Quests {
 
         //Add Eventhandler
         let that = this;
-        table.addEventListener("click", function () {
-            for (var key in that._quest) {
-                if (resources[key] < that._quest[key]){
-                    return;
-                }
-            }
-            for (var key in that._quest) {
-                resources[key] = resources[key] - that._quest[key];
-            }
-            that.increaseDifficulty(5);
-            that.newQuest();
-        });
 
         for (let text in this._quest) {
             if (this._quest[text] > 0) {
@@ -47,13 +35,17 @@ class Quests {
                 let img = document.createElement("img");
                 img.id = "security_humans";
 
+                td1.addEventListener("click", function () {
+                    that.ritual();
+                });
+
                 img.addEventListener("click", function () {
                     //TODO: Menschen opfern
                     //if (resources['humansidle'] < foodValue[text] )
                     //    return;
-                    //resources[text] -= foodValue[text];
-                    //let i2=img.parentNode;
-                    //i2.remove();
+                    //that._quest[text] -= 1;
+                    //that._questValue -= 1;
+                    //resources['humansidle'] -= 1;
                 });
 
                 //Buttons in die Tabelle einhengen
@@ -76,6 +68,20 @@ class Quests {
         this._difficulty += i;
     }
 
+    ritual(){
+        for (var key in this._quest) {
+            if (resources[key] < this._quest[key]){
+                return false;
+            }
+        }
+        for (var key in this._quest) {
+            resources[key] = resources[key] - this._quest[key];
+        }
+        this.increaseDifficulty(5);
+        this.newQuest();
+        return true;
+    }
+
     newQuest() {
         var randomProperty = function (obj) {
             var keys = Object.keys(obj);
@@ -90,14 +96,22 @@ class Quests {
             this._quest[demand] = this._quest[demand] ? 1 + this._quest[demand] : 1;
         }
         this._timer = this._timerMax;
+        this.updateUI();
     }
 
-    tick(dt){
-        this._timer -=1;
-        //UI updaten
+    updateUI()
+    {
         while (this._element.firstChild) {
             this._element.removeChild(this._element.firstChild);
         }
         this._element.appendChild(this.getDom());
+    }
+
+    tick(dt){
+        this._timer -=1;
+        this.updateUI();
+        if(this._timer <= 0 && !this.ritual()) {
+            alert('Du hast verloren!');
+        }
     }
 }
