@@ -44,6 +44,13 @@ li {
     z-index: 10;
     text-align: right;
 }
+
+#headerbar img {
+    height: 32px;
+    width: 32px;
+    vertical-align: bottom;
+}
+
 #sidebar {
     width: 384px;
     position: fixed;
@@ -107,17 +114,20 @@ img {
 #grid a img:hover {
     opacity: 0.9;
 }
-.selected {
+img.selected {
     opacity: 0.75;
 }
-
+img.selected:hover {
+    opacity: 0.65 !important;
+}
+/*
 .suspended::before {
     background-image: image('assets/pause.png');
     color: rgb(100%, 0%, 0%);
     color: rgba(100%, 0%, 0%, 0.75);
     opacity: 0.2;
 }
-
+*/
 progress {
     color: darkred;
     border: 0;

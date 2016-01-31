@@ -14,6 +14,7 @@ class GrassTile extends Tile {
         new BakeryTile(), new GoatFarmTile(), new ButcherTile(),
         new InnTile(), new BananaFarmTile(), new MonkeyHouseTile(),]
     }
+    
     clone() {
         // FIXME: Damit das funktioniert, muss erst der Tooltip-Code angepasst werden.
         // this.extra_space += 1;

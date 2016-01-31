@@ -15,8 +15,9 @@ class Tile {
 		this.tooltip_name = "TODO!!!";
         this.counter = 0;
         this.workingspeed = 40;
-        this.production_needs = [];
+        this.production = [];
         this._suspended = false;
+        this.adjacent_needs = [];
     }
 
     set suspended(s) {
@@ -76,11 +77,11 @@ class Tile {
 
     checkProductionCost()
     {
-        for (let key in this.production_needs) {
+        for (let key in this.production) {
 
-            if (this.production_needs[key] > 0) continue;
+            if (this.production[key] > 0) continue;
             //Nach der Produktion darf der Bestand nicht negativ sein.
-            if ((resources[key] - this.production_needs[key]) < 0) {
+            if ((resources[key] - this.production[key]) < 0) {
                 return false;
             }
         }
@@ -94,9 +95,16 @@ class Tile {
             // resete counter
             this.counter = this.workingspeed;
             if (this.checkProductionCost()) {
-                return this.production_needs;
+                return this.production;
             }
         }
         return {};
+    }
+
+    tearDown() {
+        if ("humansidle" in this.build_costs) {
+            resources["humansidle"] += this.build_costs["humansidle"];
+            resources["humansbusy"] -= this.build_costs["humansidle"];
+        }
     }
 }

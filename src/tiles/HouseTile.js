@@ -3,8 +3,9 @@
 class HouseTile extends Tile {
     constructor(row, column) {
         super("wohnhaeuser.gif", row, column);
-		this.build_costs = {water: 10};
-        this.production_needs = { humansidle: 1 };
+		this.build_costs = { water: 15 };
+        this.production = { humansidle: 1 };
+        this.adjacent_needs = [ new WellTile() ];
 		this.tooltip_name = "HOUSE";
         this.counter = 5;
         this.workingspeed = 30;
@@ -25,5 +26,9 @@ class HouseTile extends Tile {
         // if (this.house_number > 14) this.build_costs['stew'] = 2;
         // if (this.house_number > 14) this.build_costs['bananas'] = 2;
         return new HouseTile(this.row, this.column);
+    }
+
+    getUpgrades() {
+        return [new GrassTile(),]
     }
 };

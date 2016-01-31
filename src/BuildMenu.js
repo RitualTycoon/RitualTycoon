@@ -44,32 +44,43 @@ class BuildMenu {
         }
     }
 
-    updateTooltips() {
+    updateTooltips(selected_tile) {
         for (let tooltip of this.tooltips) {
-            tooltip.dom.innerText = tooltip.tile.tooltip_name;
+            let html = tooltip.tile.tooltip_name;
+            if (tooltip.tile.adjacent_needs.length > 0) {
+                let red = !this.isNeighborProductionAvalible(selected_tile, tooltip.tile.adjacent_needs);
+                if (red) {
+                    html += '<span style="color: #e21030">';
+                }
+                html += "<br/>needs to be next to ";
+                let first = true;
+                for (let need of tooltip.tile.adjacent_needs) {
+                    if (!first) {
+                        html += ", ";
+                    }
+                    first = false;
+                    html += need.tooltip_name;
+                }
+                if (red) {
+                    html += "</span>";
+                }
+                html += "<br/>";
+            }
             for (let key in tooltip.tile.build_costs)
             {
                 let build_costs = parseInt(tooltip.tile.build_costs[key]);
                 if (resources[key] < build_costs) {
-                    tooltip.dom.innerHTML += '<br/><span style="color: #e21030">' + key + " " + build_costs + '</span>';
+                    html += '<br/><span style="color: #e21030">' + key + " " + build_costs + '</span>';
                 } else {
-                    tooltip.dom.innerHTML += "<br/>" + key + " " + build_costs;
+                    html += "<br/>" + key + " " + build_costs;
                 }
             }
+            tooltip.dom.innerHTML = html;
             tooltip.dom.className = "tooltip";
         }
     }
 
-    isNeighborProductionAvalible(tile)
-    {
-        let needs = [];
-        for (let key in tile.production_needs)
-        {
-            if (tile.production_needs[key] < 0)
-            {
-                needs.push(key);
-            }
-        }
+    isNeighborProductionAvalible(tile, needs) {
         let neighbors = [];
         neighbors.push( board.getTile(tile.row -1, tile.column -1) );
         neighbors.push( board.getTile(tile.row -1, tile.column ) );
@@ -80,19 +91,18 @@ class BuildMenu {
         neighbors.push( board.getTile(tile.row +1, tile.column ) );
         neighbors.push( board.getTile(tile.row +1, tile.column +1) );
 
-        for (let need in needs) {
-            for (let neighbor in neighbors) {
-                if (neighbors[neighbor].production_needs.indexOf(need) != -1) {
-                    let ax = neighbors[neighbor].production_needs.indexOf(need);
-                    neighbors[neighbor].production_needs.splice(ax, 1);
+        for (let need of needs) {
+            let fullfilled = false;
+            for (let neighbor of neighbors) {
+                if (neighbor.constructor === need.constructor) {
+                    fullfilled = true;
                 }
             }
+            if (!fullfilled) {
+                return false;
+            }
         }
-        if (needs.length == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return true;
     }
 
     setUpgrades(clicked_tile) {
@@ -104,7 +114,7 @@ class BuildMenu {
         for (let availableTile of available) {
             for (let tile of this.tiles) {
                 if (availableTile.constructor === tile.constructor) {
-                    tile.disabled = !this.isNeighborProductionAvalible(clicked_tile);
+                    tile.disabled = tile.checkBuildCost() || !this.isNeighborProductionAvalible(clicked_tile, availableTile.adjacent_needs);
                     //console.log(tile.tooltip_name + tile.checkBuildCost() + !this.isNeighborProductionAvalible(clicked_tile) + " "+ (tile.checkBuildCost() || (!this.isNeighborProductionAvalible(tile))))
                 }
             }
