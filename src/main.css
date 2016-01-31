@@ -127,10 +127,14 @@ div#vulkan > img {
 .tooltip {
     display: none;
     background: #403B3B;
-    margin-left: 28px;
+    margin-top: -216px;
     padding: 10px;
     position: fixed;
     z-index: 1000;
+}
+
+.tooltip:hover {
+    margin-top: -9999px; /* dirty hack to hide the tooltip */
 }
 
 /* tooltip ende */
