@@ -13,9 +13,4 @@ class BreweryTile extends Tile {
     clone() {
         return new BreweryTile(this.row, this.column);
     }
-
-    step()
-    {
-        return{ water: -2,  wheat: -2, beer: 1};
-    }
 };

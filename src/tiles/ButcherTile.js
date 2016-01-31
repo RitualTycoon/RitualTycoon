@@ -13,9 +13,4 @@ class ButcherTile extends Tile {
     clone() {
         return new ButcherTile(this.row, this.column);
     }
-
-    step()
-    {
-        return{ water: -10,  goats: -1,  meat: 1};
-    }
 };

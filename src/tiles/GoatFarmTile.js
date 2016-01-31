@@ -13,9 +13,4 @@ class GoatFarmTile extends Tile {
     clone() {
         return new GoatFarmTile(this.row, this.column);
     }
-
-    step()
-    {
-        return { water: -7,  wheat: -10, goats: 1 };
-    }
 };

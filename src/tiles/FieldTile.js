@@ -13,9 +13,4 @@ class FieldTile extends Tile {
     clone() {
         return new FieldTile(this.row, this.column);
     }
-
-    step()
-    {
-        return { wheat: 5, };
-    }
 };

@@ -6,7 +6,7 @@ let resources = {
     livingspace: 0,
     humansidle:  0,
     humansbusy:  0,
-    water:    100,
+    water:    15,
     wheat:  0,
     flour:    0,
     beer: 0,

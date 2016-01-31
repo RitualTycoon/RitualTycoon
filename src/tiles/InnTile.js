@@ -13,9 +13,4 @@ class InnTile extends Tile {
     clone() {
         return new InnTile(this.row, this.column);
     }
-
-    step()
-    {
-        return{ beer: -1, breads: -1, meat: -1, stew: 1};
-    }
 };

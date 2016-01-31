@@ -13,9 +13,4 @@ class BakeryTile extends Tile {
     clone() {
         return new BakeryTile(this.row, this.column);
     }
-
-    step()
-    {
-        return{water: -1, flour: -4, breads: 1};
-    }
 };

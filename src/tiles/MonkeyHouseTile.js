@@ -13,9 +13,4 @@ class MonkeyHouseTile extends Tile {
     clone() {
         return new MonkeyHouseTile(this.row, this.column);
     }
-
-    step()
-    {
-        return{ bananas:-100, monkeys: 1};
-    }
 };
