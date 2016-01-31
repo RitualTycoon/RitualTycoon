@@ -3,18 +3,18 @@
 let board = new Board(19,19);
 
 let resources = {
-    humansidle: 999,
-    humansbusy: 999,
-    water: 999,
-    wheat: 999,
-    flour: 999,
-    beer: 999,
-    bread: 999,
-    goats: 999,
-    meat: 999,
-    stew: 999,
-    bananas: 999,
-    monkeys: 999,
+    humansidle: 10,
+    humansbusy: 0,
+    water: 15,
+    wheat: 0,
+    flour: 0,
+    beer: 0,
+    bread: 20,
+    goats: 0,
+    meat: 0,
+    stew: 0,
+    bananas: 0,
+    monkeys: 0,
     //milk: 0,
 };
 
