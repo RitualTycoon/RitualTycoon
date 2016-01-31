@@ -3,7 +3,7 @@
 class BreweryTile extends Tile {
     constructor(row, column) {
         super("brauerei.gif", row, column);
-		this.build_costs = {water: 5};
+		this.build_costs = {humansidle: 6, water: 100, wheat:30};
         this.tooltip_name = "BREWERY";
         this.counter = 40;
     }

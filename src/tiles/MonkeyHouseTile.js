@@ -3,7 +3,7 @@
 class InnTile extends Tile {
     constructor(row, column) {
         super("gasthaus.gif", row, column);
-		this.build_costs = {humansidle: 100, water: 700, wheat:300, bear:200, bread:150, goats:50, meat:20};
+		this.build_costs = {humansidle: 550, water: 2000, wheat:1200, bear:800, bread:600, goats:400, meat:200, stew:100, bananas:50};
         this.tooltip_name = "INN";
         this.counter = 40;
     }
