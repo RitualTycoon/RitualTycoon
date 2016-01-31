@@ -76,13 +76,16 @@ function selectTile(row, column) {
     if (!(tile instanceof WaterTile)) {
         tile.select();
     }
+    tile = board.getTile(row, column);
     if (row == selected[0] && column == selected[1]) {
         selected = [-1, -1];
+        if(tile.getUpgrades().length == 0) tile.suspended = !tile.suspended
     } else {
         selected = [row, column];
-        let tile = board.getTile(row, column);
         tile.select();
-        buildMenu.setUpgrades(tile.getUpgrades());
+        let upgrades = tile.getUpgrades();
+        buildMenu.setUpgrades(upgrades);
+        if(upgrades.length == 0) tile.suspended = !tile.suspended;
         //console.log(board.getTile(row, column).canUpgradeTo());
     }
 }
@@ -125,7 +128,7 @@ window.onload = function() {
 setInterval(function() {
     for (let row of board.board) {
         for (let tile of row) {
-            let newResources = tile.step();
+            let newResources = tile.suspended ?  tile.step() : {};
             tile.counter -= 1;
             if (tile.counter < 0) tile.counter = tile.workingspeed;
             for (let newResource in newResources) {

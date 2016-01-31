@@ -15,6 +15,17 @@ class Tile {
 		this.tooltip_name = "TODO!!!";
         this.counter = 0;
         this.workingspeed = 40;
+        this._suspended = false;
+    }
+
+    set suspended(s) {
+        this._suspended = s;
+        if(s) this.imgElement.classList.remove("suspended");
+        else this.imgElement.classList.add("suspended");
+    }
+
+    get suspended(){
+        return this._suspended;
     }
 
     get disabled() {
@@ -43,15 +54,15 @@ class Tile {
 
     select() {
         if (this.isSelected) {
-            this.imgElement.setAttribute("class", "");
+            this.imgElement.classList.remove("selected");
         } else {
-            this.imgElement.setAttribute("class", "selected");
+            this.imgElement.classList.add("selected");
         }
         this.isSelected = !this.isSelected;
     }
 
     getUpgrades() {
-        return ["none"];
+        return [];
     }
 	checkBuildCost()
 	{
