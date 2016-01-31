@@ -21,7 +21,7 @@ li {
     text-align: left;
 }
 #headerbar div {
-    width: 80px;
+    min-width: 80px;
     display: inline-block;
 }
 #headerbar img, #missions img {
