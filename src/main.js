@@ -28,7 +28,7 @@ let foodValue = {
     meat: 40,
     stew: 200,
     bananas: 200,
-    monkeys: 200,
+    monkeys: 200
 };
 
 function foodToHuman(food, amount)
@@ -138,7 +138,7 @@ window.onload = function() {
 setInterval(function() {
     for (let row of board.board) {
         for (let tile of row) {
-            let newResources = tile.suspended ?  tile.step() : {};
+            let newResources = tile.suspended ? {} : tile.step();
             tile.counter -= 1;
             if (tile.counter < 0) tile.counter = tile.workingspeed;
             for (let newResource in newResources) {
