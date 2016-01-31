@@ -7,16 +7,30 @@ let resources = {
     humansbusy:  0,
     water:    100,
     wheat:  0,
-    meat:     0,
-    bananas:  0,
     flour:    0,
-    breads:   0,
-    monkeys: 0,
-    milk: 0,
-    goats: 0,
     beer: 0,
+    breads:   0,
+    goats: 0,
+    meat:     0,
     stew: 0,
+    bananas:  0,
+    monkeys: 0,
+    //milk: 0,
 };
+
+function foodToHuman(food, amount)
+{
+    if (food == "water")   return Math.ceil(amount / 200);
+    if (food == "wheat")   return Math.ceil(amount / 100);
+    if (food == "flour")   return Math.ceil(amount /  70);
+    if (food == "beer")    return Math.ceil(amount /  50);
+    if (food == "breads")  return Math.ceil(amount /  30);
+    if (food == "goats")   return Math.ceil(amount /  10);
+    if (food == "meat")    return Math.ceil(amount /   5);
+    if (food == "stew")    return Math.ceil(amount /   1);
+    if (food == "bananas") return Math.ceil(amount /   1);
+    if (food == "monkeys") return Math.ceil(amount /   1);
+}
 
 let selected = [-1, -1];
 
