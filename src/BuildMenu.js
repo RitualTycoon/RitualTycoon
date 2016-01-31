@@ -7,7 +7,7 @@ class BuildMenu {
             [new GrassTile(), new HouseTile(), new WellTile(),],
             [new FieldTile(), new WindmillTile(), new BakeryTile(),],
             [new BreweryTile(), new GoatFarmTile(), new ButcherTile(),],
-            [ new InnTile(), new BananaFarmTile(), new MonkeyHouseTile(),],
+            [new InnTile(), new BananaFarmTile(), new MonkeyHouseTile(),],
         ];
         this.tiles = []
         this.domElements = [];
@@ -21,7 +21,7 @@ class BuildMenu {
                 div.innerText += tile.tooltip_name;
                 for (let key in tile.build_costs)
                 {
-                    div.innerText += "\n" + tile.build_costs[key] + "x " + key;
+                    div.innerHTML += "<br/>" + tile.build_costs[key] + "x " + key;
                 }
                 div.className = "tooltip";
                 tile.disabled = true;
