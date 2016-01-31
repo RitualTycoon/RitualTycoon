@@ -4,6 +4,10 @@
     color: #eee;
     font-family: 'Victor', sans-serif;
 }
+h1 {
+    font-size: 60pt;
+    margin-bottom: 48px;
+}
 @font-face {
     font-family: "Victor";
     src: url('victor-pixel.woff') format('woff');
