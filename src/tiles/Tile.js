@@ -35,7 +35,8 @@ class Tile {
 
     set disabled(d) {
         this._disabled = d;
-        this.imgElement.setAttribute("style", d ? "opacity: 0.7" : "");
+        this.imgElement.setAttribute("style", d ?
+        "filter: grayscale(100%); -webkit-filter: grayscale(100%)" : "");
     }
 
     getDOM() {
