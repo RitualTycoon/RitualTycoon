@@ -5,7 +5,7 @@ class WellTile extends Tile {
         super("brunnen.gif", row, column);
         this.tooltip_name = "WELL";
         this.build_costs = {humansidle: 1};
-        this.production_needs = { water: 1};
+        this.production = { water: 1};
         this.counter = 1;
         this.workingspeed = 1;
     }
