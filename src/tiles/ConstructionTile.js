@@ -5,7 +5,7 @@ class ConstructionTile extends Tile {
         super("build.gif", tile.row, tile.column);
 //         this.tooltip_name = "UNDER CONSTRUCTION...";
         this.building = tile;
-        this.progress = 2;
+        this.progress = tile.buildtime;
     }
 
     step() {

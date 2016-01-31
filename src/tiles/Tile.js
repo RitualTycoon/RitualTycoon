@@ -18,6 +18,7 @@ class Tile {
         this.production = [];
         this._suspended = false;
         this.adjacent_needs = [];
+        this.buildtime = 3;
     }
 
     set suspended(s) {

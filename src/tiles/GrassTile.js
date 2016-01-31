@@ -6,6 +6,7 @@ class GrassTile extends Tile {
 		this.build_costs = {water: 50};
 		this.tooltip_name = "GRASS";
         this.extra_space = 0;
+        this.buildtime = 1;
     }
 
     getUpgrades() {

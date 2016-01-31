@@ -6,7 +6,7 @@ class WindmillTile extends Tile {
 		this.build_costs = {humansidle: 5, water: 50, wheat:20};
         this.production = { flour: 2 };
         this.adjacent_needs = [ new FieldTile() ];
-        this.tooltip_name = "wINDMILL";
+        this.tooltip_name = "WINDMILL";
         this.workingspeed = 35;
     }
 
