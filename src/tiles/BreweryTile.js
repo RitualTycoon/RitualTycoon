@@ -9,7 +9,7 @@ class BreweryTile extends Tile {
         // zu verbuggt (negatives Mehl) und wird grafisch nicht deutlich.
         this.production = {/*water: -2, wheat: -2, */beer: 1};
         this.adjacent_needs = [ new WellTile(),new FieldTile() ];
-        this.tooltip_name = "BREWERY  \n needs to be next to Field,Well";
+        this.tooltip_name = "BREWERY";
         this.counter = 40;
         this.workingspeed = 40;
     }

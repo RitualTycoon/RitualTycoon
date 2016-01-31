@@ -4,7 +4,7 @@ class Quests {
         this._difficulty = 10;
         this._quest = {water: this._difficulty};
         this._questValue = this._difficulty;
-        this._timerMax = 30;
+        this._timerMax = 45;
         this._timer = this._timerMax;
         this._element = document.getElementById("missions");
         this._sacrificed = {};
@@ -70,17 +70,24 @@ class Quests {
         this._difficulty += i;
     }
 
-    ritual(){
+    ritual(sacrificeHumans){
+        if(sacrificeHumans == undefined) sacrificeHumans = false;
         for (var key in this._quest) {
             if (resources[key] < this._quest[key]){
+                if(sacrificeHumans){
+                    if(resources['humansidle'] >= this._quest[key]){
+                        resources['humansidle'] = resources['humansidle'] - this._quest[key];
+                        this._sacrificed['humans'] = this._sacrificed['humans'] ? this._sacrificed['humans'] + this._quest[key] : this._quest[key];
+                        this.increaseDifficulty(this._difficulty*0.01*this._quest[key]);
+                        continue;
+                    }
+                }
                 return false;
             }
-        }
-        for (var key in this._quest) {
             resources[key] = resources[key] - this._quest[key];
             this._sacrificed[key] = this._sacrificed[key] ? this._sacrificed[key] + this._quest[key] : this._quest[key];
         }
-        this.increaseDifficulty(5+this._difficulty*0.05);
+        this.increaseDifficulty(5+this._difficulty*0.07);
         this.newQuest();
         return true;
     }
@@ -115,8 +122,8 @@ class Quests {
     tick(dt){
         this._timer -=1;
         this.updateUI();
-        if(this._timer <= 0 && !this.ritual() && !lost) {
-            alert('Du hast verloren!\nOpfergaben:\n' +JSON.stringify(this._sacrificed));
+        if(this._timer <= 0 && !this.ritual(true) && !lost) {
+            alert('You loose!\nSacrifices:\n' +JSON.stringify(this._sacrificed));
             lost = true;
         }
     }

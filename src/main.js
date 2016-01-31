@@ -28,7 +28,7 @@ let foodValue = {
     meat: 40,
     stew: 200,
     bananas: 200,
-    monkeys: 200,
+    monkeys: 200
 };
 
 function foodToHuman(food, amount)

@@ -6,7 +6,7 @@ class HouseTile extends Tile {
 		this.build_costs = { water: 15 };
         this.production = { humansidle: 1 };
         this.adjacent_needs = [ new WellTile() ];
-		this.tooltip_name = "HOUSE \n needs to be next to Well";
+		this.tooltip_name = "HOUSE";
         this.counter = 5;
         this.workingspeed = 30;
         this.house_number = 0;

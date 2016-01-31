@@ -16,7 +16,7 @@ class MonkeyHouseTile extends Tile {
         };
         this.production = { monkeys: 1 };
         this.adjacent_needs = [ new BananaFarmTile() ];
-        this.tooltip_name = "MONKEY HOUSE \n needs to be next to BananaFarm";
+        this.tooltip_name = "MONKEY HOUSE";
         this.counter = 120;
         this.workingspeed = 50;
     }
