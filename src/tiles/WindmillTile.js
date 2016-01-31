@@ -6,22 +6,19 @@ class WindmillTile extends Tile {
 		this.build_costs = {humansidle: 4, water: 30, wheat:15};
         this.tooltip_name = "wINDMILL";
         this.counter = 40;
+        this.workingspeed = 40;
     }
 
     clone() {
         return new WindmillTile(this.row, this.column);
     }
 
-    step() {
-        this.counter = this.counter - 1;
-        if (this.counter > 0) {
-            return {};
-        }
-        this.counter = 40;
-        if(resources['wheat']>5){
-            return {
-                "flour": 10,"wheat":-5,
-            };
-        }
+    step()
+    {
+        return
+        {
+            "wheat": -2,
+            "flour": 1
+        };
     }
 };

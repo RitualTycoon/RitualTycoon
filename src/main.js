@@ -125,6 +125,8 @@ setInterval(function() {
     for (let row of board.board) {
         for (let tile of row) {
             let newResources = tile.step();
+            tile.counter -= 1;
+            if (tile.counter < 0) tile.counter = tile.workingspeed;
             for (let newResource in newResources) {
                 resources[newResource] += newResources[newResource];
             }

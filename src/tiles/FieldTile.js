@@ -5,21 +5,19 @@ class FieldTile extends Tile {
         super("weizenfarm.png", row, column);
 		this.build_costs = {humansidle: 2, water: 15};
 		this.tooltip_name = "FIELD";
-        this.counter = 10;
+        this.counter = 30;
+        this.workingspeed = 10;
     }
 
     clone() {
         return new FieldTile(this.row, this.column);
     }
 
-    step() {
-        this.counter = this.counter - 1;
-        if (this.counter > 0) {
-            return {};
-        }
-        this.counter = 10;
-        return {
-            "wheat": 1,
+    step()
+    {
+        return
+        {
+            "wheat": 5,
         };
     }
 };

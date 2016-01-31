@@ -13,6 +13,8 @@ class Tile {
         this.parentDom = null;
 		this.build_costs = [];
 		this.tooltip_name = "TODO!!!";
+        this.counter = 0;
+        this.workingspeed = 40;
     }
 
     get disabled() {
