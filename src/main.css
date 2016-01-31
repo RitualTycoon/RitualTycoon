@@ -44,6 +44,13 @@ li {
     z-index: 10;
     text-align: right;
 }
+
+#headerbar img {
+    height: 32px;
+    width: 32px;
+    vertical-align: bottom;
+}
+
 #sidebar {
     width: 384px;
     position: fixed;
