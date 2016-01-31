@@ -13,6 +13,8 @@ class Tile {
         this.parentDom = null;
 		this.build_costs = [];
 		this.tooltip_name = "TODO!!!";
+        this.counter = 0;
+        this.workingspeed = 40;
     }
 
     get disabled() {
@@ -55,11 +57,15 @@ class Tile {
 	{
 		for (let key in this.build_costs)
 		{
-			if (resources[key] < this.build_costs[key])
-			{
-				return true;
+            let a = this.build_costs[key] < 0;
+            let b = resources[key] > this.build_costs[key];
+            let res = a || b;
+			//if (this.build_costs[key] < 0 && resources[key] < this.build_costs[key])
+            if (res)
+            {
+				return false;
 			}
 		}
-		return false;
+		return true;
 	}
 }

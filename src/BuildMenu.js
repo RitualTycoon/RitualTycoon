@@ -4,10 +4,10 @@ class BuildMenu {
     constructor() {
         this.element = document.getElementById("buildmenu");
         let grid = [
-            [new GrassTile(), new HouseTile(), new GoatFarmTile(),],
-            [new FieldTile(), new ButcherTile(), new DairyTile(),],
-            [new WindmillTile(), new WellTile(), new BakeryTile(),],
-            [new BreweryTile(), new InnTile(), new GrassTile(),],
+            [new GrassTile(), new HouseTile(), new WellTile(),],
+            [new FieldTile(), new WindmillTile(), new BreweryTile(),],
+            [new BakeryTile(), new GoatFarmTile(), new ButcherTile(),],
+            [ new InnTile(), new BananaFarmTile(), new MonkeyHouseTile(),],
         ];
         this.tiles = []
         this.domElements = [];

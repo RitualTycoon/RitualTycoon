@@ -60,21 +60,21 @@ function getQuest()
 
 			//Add Eventhandler
 			inner_div.addEventListener("click", function()
-																	{
-																		if (resources[text] < quest[text] )
-																			return;
-																		resources[text] -= quest[text];
-																		let i2=inner_div.closest('tr');
-																		i2.remove();
-																	});
+												{
+													if (resources[text] < quest[text] )
+														return;
+													resources[text] -= quest[text];
+													let i2=inner_div.closest('tr');
+													i2.remove();
+												});
 			img.addEventListener("click", function()
-																	{
-																		if (resources[text] < quest[text] )
-																			return;
-																		resources[text] -= quest[text];
-																		let i2=img.closest('tr');
-																		i2.remove();
-																	});
+												{
+													if (resources['humansidle'] < quest[text] )
+														return;
+													resources[text] -= quest[text];
+													let i2=img.closest('tr');
+													i2.remove();
+												});
 
 			//Buttons in die Tabelle einhengen
 			td1.appendChild(inner_div);

@@ -3,9 +3,10 @@
 class HouseTile extends Tile {
     constructor(row, column) {
         super("wohnhaeuser.gif", row, column);
-        this.counter = 10;
-		this.build_costs = {water: 50};
+		this.build_costs = {livingspace: -10};
 		this.tooltip_name = "HOUSE";
+        this.counter = 5;
+        this.workingspeed = 40;
     }
 
     clone() {
@@ -13,13 +14,13 @@ class HouseTile extends Tile {
     }
 
     step() {
-        this.counter = this.counter - 1;
-        if (this.counter > 0) {
-            return {};
+        if (resources['livingspace'] > (resources['humansidle'] + resources['humansbusy']))
+        {
+            return { humansidle: 1, };
         }
-        this.counter = 10;
-        return {
-            "humansidle": 1,
-        };
+        else
+        {
+            return { };
+        }
     }
 };
