@@ -44,6 +44,7 @@ let startDragging = false;
 let startX;
 let startY;
 let cancelDragging = false;
+let lost = false;
 
 let buildMenu = new BuildMenu();
 let quests = new Quests();
