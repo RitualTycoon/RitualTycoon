@@ -44,6 +44,7 @@ let startDragging = false;
 let startX;
 let startY;
 let cancelDragging = false;
+let lost = false;
 
 let buildMenu = new BuildMenu();
 let quests = new Quests();
@@ -130,7 +131,7 @@ window.onload = function() {
     grid.appendChild(table);
 };
 
-setInterval(function() {
+setTimeout(function() {
     for (let row of board.board) {
         for (let tile of row) {
             let newResources = tile.suspended ?  tile.step() : {};
@@ -145,6 +146,7 @@ setInterval(function() {
         document.getElementById(resource).textContent = resources[resource];
     }
     quests.tick(1000);
+    buildMenu.updateTooltips();
 }, 1000);
 
 document.addEventListener("keydown", function(e) {

@@ -11,25 +11,24 @@ class BuildMenu {
         ];
         this.tiles = []
         this.domElements = [];
+        this.tooltips = [];
         let table = document.createElement("table");
         for (let row of grid) {
             let tr = document.createElement("tr");
             for (let tile of row) {
                 let td = document.createElement("td");
                 //Tooltip inhalt
-                let div = document.createElement("div");
-                div.innerText += tile.tooltip_name;
-                for (let key in tile.build_costs)
-                {
-                    div.innerHTML += "<br/>" + tile.build_costs[key] + "x " + key;
-                }
-                div.className = "tooltip";
+                let tooltip = document.createElement("div");
                 tile.disabled = true;
                 let dom = tile.getDOM();
                 this.tiles.push(tile);
                 this.domElements.push(dom);
                 td.appendChild(dom);
-                dom.appendChild(div);
+                dom.appendChild(tooltip);
+                this.tooltips.push({
+                    dom: tooltip,
+                    tile: tile,
+                });
                 tr.appendChild(td);
             }
             table.appendChild(tr);
@@ -42,6 +41,22 @@ class BuildMenu {
             this.tiles[i].link.setAttribute("class",
                 "totooltip"
             );
+        }
+    }
+
+    updateTooltips() {
+        for (let tooltip of this.tooltips) {
+            tooltip.dom.innerText = tooltip.tile.tooltip_name;
+            for (let key in tooltip.tile.build_costs)
+            {
+                let build_costs = parseInt(tooltip.tile.build_costs[key]);
+                if (resources[key] < build_costs) {
+                    tooltip.dom.innerHTML += '<br/><span style="color: #e21030">' + key + " " + build_costs + '</span>';
+                } else {
+                    tooltip.dom.innerHTML += "<br/>" + key + " " + build_costs;
+                }
+            }
+            tooltip.dom.className = "tooltip";
         }
     }
 
@@ -65,22 +80,17 @@ class BuildMenu {
         neighbors.push( board.getTile(tile.row +1, tile.column ) );
         neighbors.push( board.getTile(tile.row +1, tile.column +1) );
 
-        for (let need in needs)
-        {
-            for (let neighbor in neighbors)
-            {
-                if (neighbors[neighbor].production_needs.indexOf(need) != -1)
-                {
+        for (let need in needs) {
+            for (let neighbor in neighbors) {
+                if (neighbors[neighbor].production_needs.indexOf(need) != -1) {
                     let ax = neighbors[neighbor].production_needs.indexOf(need);
                     neighbors[neighbor].production_needs.splice(ax, 1);
                 }
             }
         }
-        if (needs.length == 0)
-        {
+        if (needs.length == 0) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
     }
