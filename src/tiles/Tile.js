@@ -65,8 +65,10 @@ class Tile {
     checkProductionCost()
     {
         for (let key in this.production_needs) {
+
             if (this.production_needs[key] > 0) continue;
-            if (resources[key] < this.production_needs[key]) {
+            //Nach der Produktion darf der Bestand nicht negativ sein.
+            if (resources[key] - this.production_needs[key] < 0) {
                 return false;
             }
         }
