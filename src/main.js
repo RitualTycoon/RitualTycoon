@@ -99,6 +99,10 @@ function build(index) {
     if (clickedTile.disabled || clickedTile.checkBuildCost()) {
         return;
     }
+
+    // Altes Tile abreißen:
+    board.getTile(selected[0], selected[1]).tearDown();
+    
     let newTile = clickedTile.clone();
     newTile.row = selected[0];
     newTile.column = selected[1];
