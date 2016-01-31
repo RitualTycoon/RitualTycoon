@@ -4,18 +4,18 @@ function getQuest()
 {
 	let quest = {
 		humansidle:  0,
-    humansbusy:  0,
-    water:    0,
-    wheat:  0,
-    meat:     0,
-    bananas:  0,
-    flour:    0,
-    breads:   0,
-    monkeys: 0,
-    milk: 0,
-    goats: 0,
-    beer: 0,
-    stew: 0,
+		humansbusy:  0,
+		water:    0,
+		wheat:  0,
+		meat:     0,
+		bananas:  0,
+		flour:    0,
+		breads:   0,
+		monkeys: 0,
+		milk: 0,
+		goats: 0,
+		beer: 0,
+		stew: 0,
 };
 
 	//Die ein drittel der Karotten
@@ -64,7 +64,7 @@ function getQuest()
 													if (resources[text] < quest[text] )
 														return;
 													resources[text] -= quest[text];
-													let i2=inner_div.closest('tr');
+													let i2=inner_div.parentNode;
 													i2.remove();
 												});
 			img.addEventListener("click", function()
@@ -72,7 +72,7 @@ function getQuest()
 													if (resources['humansidle'] < quest[text] )
 														return;
 													resources[text] -= quest[text];
-													let i2=img.closest('tr');
+													let i2=img.parentNode;
 													i2.remove();
 												});
 
