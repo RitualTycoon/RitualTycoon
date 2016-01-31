@@ -22,6 +22,9 @@ li {
 }
 #headerbar img {
     margin-right: 4px;
+    height: 32px;
+    width: 32px;
+    vertical-align: bottom;
 }
 #sidebar, #headerbar, body {
     font-size: 22pt;
@@ -42,6 +45,7 @@ li {
 ::-webkit-scrollbar {
     display: none;
 }
+
 #headerbar {
     padding: 0 48px;
     position: fixed;
@@ -53,10 +57,16 @@ li {
     text-align: right;
 }
 
-#headerbar img {
-    height: 32px;
-    width: 32px;
-    vertical-align: bottom;
+@media (min-width: 1600px) {
+  #headerbar {
+    height: 40px;
+  }
+}
+
+@media (max-width: 1600px) {
+  #headerbar {
+    height: 80px;
+  }
 }
 
 #sidebar {
