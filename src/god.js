@@ -7,6 +7,7 @@ class Quests {
         this._timerMax = 60;
         this._timer = this._timerMax;
         this._element = document.getElementById("missions");
+        this._sacrificed = {};
         this.newQuest();
     }
 
@@ -76,8 +77,9 @@ class Quests {
         }
         for (var key in this._quest) {
             resources[key] = resources[key] - this._quest[key];
+            this._sacrificed[key] = this._sacrificed[key] ? this._sacrificed[key] + this._quest[key] : this._quest[key];
         }
-        this.increaseDifficulty(5);
+        this.increaseDifficulty(5+this._difficulty*0.05);
         this.newQuest();
         return true;
     }
@@ -110,8 +112,9 @@ class Quests {
     tick(dt){
         this._timer -=1;
         this.updateUI();
-        if(this._timer <= 0 && !this.ritual()) {
-            alert('Du hast verloren!');
+        if(this._timer <= 0 && !this.ritual() && !lost) {
+            alert('Du hast verloren!\nOpfergaben:\n' +JSON.stringify(this._sacrificed));
+            lost = true;
         }
     }
 }
