@@ -72,7 +72,6 @@ class BuildMenu {
         neighbors.push( board.getTile(tile.row +1, tile.column +1) );
 
         for (let need of needs) {
-            console.log("checking " + need);
             let fullfilled = false;
             for (let neighbor of neighbors) {
                 if (neighbor.constructor === need.constructor) {

@@ -9,7 +9,7 @@ let resources = {
     wheat: 0,
     flour: 0,
     beer: 0,
-    bread: 20,
+    bread: 0,
     goats: 0,
     meat: 0,
     stew: 0,
@@ -28,7 +28,7 @@ let foodValue = {
     meat: 40,
     stew: 200,
     bananas: 200,
-    monkeys: 200,
+    monkeys: 200
 };
 
 function foodToHuman(food, amount)
@@ -83,14 +83,14 @@ function selectTile(row, column) {
     tile = board.getTile(row, column);
     if (row == selected[0] && column == selected[1]) {
         selected = [-1, -1];
-        if(tile.getUpgrades().length == 0) tile.suspended = !tile.suspended
+        // if(tile.getUpgrades().length == 0) tile.suspended = !tile.suspended
     } else {
         selected = [row, column];
         tile.select();
         let upgrades = tile.getUpgrades();
         buildMenu.setUpgrades(tile);
-        if(upgrades.length == 0) tile.suspended = !tile.suspended;
-        //console.log(board.getTile(row, column).canUpgradeTo());
+        // if(upgrades.length == 0) tile.suspended = !tile.suspended;
+        // console.log(board.getTile(row, column).canUpgradeTo());
     }
 }
 
@@ -99,14 +99,20 @@ function build(index) {
     if (clickedTile.disabled || clickedTile.checkBuildCost()) {
         return;
     }
+
+    // Altes Tile abreißen:
+    board.getTile(selected[0], selected[1]).tearDown();
+
     let newTile = clickedTile.clone();
     newTile.row = selected[0];
     newTile.column = selected[1];
     board.setTile(newTile);
 	//Baukosten abziehen
-	for (let key in newTile.build_costs)
-	{
-		resources[key] -=  newTile.build_costs[key]
+	for (let key in newTile.build_costs) {
+		resources[key] -= newTile.build_costs[key];
+        if (key == "humansidle") {
+            resources["humansbusy"] += newTile.build_costs[key];
+        }
 	}
 	//Select wieder zurück setzen
     selected = [-1, -1];
@@ -132,7 +138,7 @@ window.onload = function() {
 setInterval(function() {
     for (let row of board.board) {
         for (let tile of row) {
-            let newResources = tile.suspended ?  tile.step() : {};
+            let newResources = tile.suspended ? {} : tile.step();
             tile.counter -= 1;
             if (tile.counter < 0) tile.counter = tile.workingspeed;
             for (let newResource in newResources) {
