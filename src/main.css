@@ -107,6 +107,11 @@ img {
 .selected {
     opacity: 0.75;
 }
+.suspended {
+    color: rgb(100%, 0%, 0%);
+    color: rgba(100%, 0%, 0%, 0.75);
+    opacity: 0.2;
+}
 div#vulkan {
     position:relative;
 }
