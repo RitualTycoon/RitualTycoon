@@ -145,6 +145,7 @@ setInterval(function() {
         document.getElementById(resource).textContent = resources[resource];
     }
     quests.tick(1000);
+    buildMenu.updateTooltips();
 }, 1000);
 
 document.addEventListener("keydown", function(e) {
