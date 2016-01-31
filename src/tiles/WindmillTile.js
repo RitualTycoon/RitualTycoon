@@ -6,7 +6,7 @@ class WindmillTile extends Tile {
 		this.build_costs = {humansidle: 2, water: 30, wheat:15};
         this.production = {/*wheat: -2, */flour: 5};
         this.adjacent_needs = [ new FieldTile() ];
-        this.tooltip_name = "wINDMILL \n needs to be next to Field";
+        this.tooltip_name = "wINDMILL";
         this.counter = 30;
         this.workingspeed = 40;
     }
@@ -14,7 +14,7 @@ class WindmillTile extends Tile {
     clone() {
         return new WindmillTile(this.row, this.column);
     }
-    
+
     getUpgrades() {
         return [new GrassTile(),]
     }

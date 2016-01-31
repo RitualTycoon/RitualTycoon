@@ -6,7 +6,7 @@ class FieldTile extends Tile {
 		this.build_costs = {humansidle: 2, water: 15};
         this.production = {wheat: 5,};
         this.adjacent_needs = [ new WellTile() ];
-		this.tooltip_name = "FIELD \n needs to be next to Well";
+		this.tooltip_name = "FIELD";
         this.counter = 30;
         this.workingspeed = 10;
     }

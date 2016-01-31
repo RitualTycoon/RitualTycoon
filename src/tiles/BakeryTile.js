@@ -9,7 +9,7 @@ class BakeryTile extends Tile {
         // zu verbuggt (negatives Mehl) und wird grafisch nicht deutlich.
         this.production = {/*water: -1, flour: -4, */bread: 1};
         this.adjacent_needs = [ new WindmillTile() ];
-        this.tooltip_name = "BAKERY \n needs to be next to Windmill";
+        this.tooltip_name = "BAKERY";
         this.counter = 40;
         this.workingspeed = 35;
     }

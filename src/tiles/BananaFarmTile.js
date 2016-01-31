@@ -6,7 +6,7 @@ class BananaFarmTile extends Tile {
 		this.build_costs = {humansidle: 250, water: 1500, wheat:600, beer:400, bread:300, goats:200, meat:100, stew:50};
         this.production = {bananas: 1};
         this.adjacent_needs = [ new WellTile() ];
-        this.tooltip_name = "BANANA PLANTATION \n needs to be next to Well";
+        this.tooltip_name = "BANANA PLANTATION";
         this.counter = 120;
         this.workingspeed = 30;
     }
