@@ -4,7 +4,7 @@ class Quests {
         this._difficulty = 10;
         this._quest = {water: this._difficulty};
         this._questValue = this._difficulty;
-        this._timerMax = 60;
+        this._timerMax = 30;
         this._timer = this._timerMax;
         this._element = document.getElementById("missions");
         this._sacrificed = {};
