@@ -4,9 +4,9 @@ class GoatFarmTile extends Tile {
     constructor(row, column) {
         super("ziegenhof.gif", row, column);
 		this.tooltip_name = "GOAT FARM";
-        this.adjacent_needs = [ new FieldTile() ];
-        this.build_costs = { humansidle: 8, water: 200, wheat:100, beer:50, bread:20 };
-        this.production = {/*water: -7, wheat: -10, */goats: 1};
+        this.adjacent_needs = [ new FieldTile(), ];
+        this.build_costs = { humansidle: 8, water: 200, wheat: 100, beer: 50, bread: 20, };
+        this.production = { goats: 1, };
         this.counter = 80;
         this.workingspeed = 30;
     }
@@ -16,6 +16,6 @@ class GoatFarmTile extends Tile {
     }
 
     getUpgrades() {
-        return [new GrassTile(),]
+        return [ new GrassTile(), ]
     }
 };

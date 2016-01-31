@@ -3,11 +3,8 @@
 class BakeryTile extends Tile {
     constructor(row, column) {
         super("baeckerei.gif", row, column);
-	    this.build_costs = {humansidle: 2, water: 100, wheat:50};
-
-        // Dass Gebäude etwas benötigen, habe ich erstmal auskommentiert. Es ist noch
-        // zu verbuggt (negatives Mehl) und wird grafisch nicht deutlich.
-        this.production = {/*water: -1, flour: -4, */bread: 1};
+	    this.build_costs = { humansidle: 2, water: 100, wheat: 50, };
+        this.production = { bread: 1 };
         this.adjacent_needs = [ new WindmillTile() ];
         this.tooltip_name = "BAKERY";
         this.counter = 40;
@@ -19,6 +16,6 @@ class BakeryTile extends Tile {
     }
 
     getUpgrades() {
-        return [new GrassTile(),]
+        return [ new GrassTile(), ];
     }
 };
