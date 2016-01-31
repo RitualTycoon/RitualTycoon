@@ -100,4 +100,11 @@ class Tile {
         }
         return {};
     }
+
+    tearDown() {
+        if ("humansidle" in this.build_costs) {
+            resources["humansidle"] += this.build_costs["humansidle"];
+            resources["humansbusy"] -= this.build_costs["humansidle"];
+        }
+    }
 }

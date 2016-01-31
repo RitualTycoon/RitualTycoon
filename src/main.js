@@ -9,7 +9,7 @@ let resources = {
     wheat: 0,
     flour: 0,
     beer: 0,
-    bread: 20,
+    bread: 0,
     goats: 0,
     meat: 0,
     stew: 0,
@@ -99,14 +99,20 @@ function build(index) {
     if (clickedTile.disabled || clickedTile.checkBuildCost()) {
         return;
     }
+
+    // Altes Tile abreißen:
+    board.getTile(selected[0], selected[1]).tearDown();
+
     let newTile = clickedTile.clone();
     newTile.row = selected[0];
     newTile.column = selected[1];
     board.setTile(newTile);
 	//Baukosten abziehen
-	for (let key in newTile.build_costs)
-	{
-		resources[key] -=  newTile.build_costs[key]
+	for (let key in newTile.build_costs) {
+		resources[key] -= newTile.build_costs[key];
+        if (key == "humansidle") {
+            resources["humansbusy"] += newTile.build_costs[key];
+        }
 	}
 	//Select wieder zurück setzen
     selected = [-1, -1];
