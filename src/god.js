@@ -4,7 +4,7 @@ class Quests {
         this._difficulty = 10;
         this._quest = { water: this._difficulty };
         this._questValue = this._difficulty;
-        this._timerMax = 5;
+        this._timerMax = 60;
         this._timer = this._timerMax;
         this._element = document.getElementById("missions");
         this._sacrificed = {};
@@ -28,7 +28,6 @@ class Quests {
             if (this._quest[text] > 0) {
                 // Opferbutton
                 let inner_div = document.createElement("div");
-                console.log("asdf");
                 inner_div.id = "button";
                 inner_div.innerText += this._quest[text] + "x " + text;
                 if (this._quest[text] > resources[text]) {
@@ -110,7 +109,7 @@ class Quests {
             let score = 0;
             for (var key in this._sacrificed) {
                 if(key == 'humans') continue;
-                score += foodValue(key)*this._sacrificed[key];
+                score += foodValue[key]*this._sacrificed[key];
             }
             alert('You Loose!\nFinal Score: '+score+'\nSacrifices:\n' +JSON.stringify(this._sacrificed));
             lost = true;
