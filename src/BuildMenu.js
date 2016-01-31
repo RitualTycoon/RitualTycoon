@@ -80,22 +80,17 @@ class BuildMenu {
         neighbors.push( board.getTile(tile.row +1, tile.column ) );
         neighbors.push( board.getTile(tile.row +1, tile.column +1) );
 
-        for (let need in needs)
-        {
-            for (let neighbor in neighbors)
-            {
-                if (neighbors[neighbor].production_needs.indexOf(need) != -1)
-                {
+        for (let need in needs) {
+            for (let neighbor in neighbors) {
+                if (neighbors[neighbor].production_needs.indexOf(need) != -1) {
                     let ax = neighbors[neighbor].production_needs.indexOf(need);
                     neighbors[neighbor].production_needs.splice(ax, 1);
                 }
             }
         }
-        if (needs.length == 0)
-        {
+        if (needs.length == 0) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
     }
