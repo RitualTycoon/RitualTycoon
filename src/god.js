@@ -43,7 +43,6 @@ class Quests {
         let tr2 = document.createElement("tr");
         table.appendChild(tr2);
         tr2.appendChild(progressBar);
-
         return table;
     }
 
@@ -94,12 +93,9 @@ class Quests {
         this.updateUI();
     }
 
-    updateUI()
-    {
-        while (this._element.firstChild) {
-            this._element.removeChild(this._element.firstChild);
-        }
-        this._element.appendChild(this.getDom());
+    updateUI() {
+        this._element.removeChild(this._element.firstChild);
+        this._element.insertBefore(this.getDom(), this._element.firstChild);
     }
 
     tick(dt){
