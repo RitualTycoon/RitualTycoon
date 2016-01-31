@@ -157,10 +157,39 @@ img.selected:hover {
 }
 */
 progress {
+    /* Reset the default appearance */
+    background-color: #222;
+    appearance: none;
     color: darkred;
     border: 0;
     width: 100%;
     height: 40px;
+}
+progress::-webkit-progress-bar {
+    /* Reset the default appearance */
+    background-color: #222;
+    appearance: none;
+    color: darkred;
+    border: 0;
+    width: 100%;
+    height: 40px;
+}
+progress::-moz-progress-bar {
+    /* Reset the default appearance */
+    background-color: darkred;
+    appearance: none;
+    color: darkred;
+    border: 0;
+    width: 100%;
+    height: 40px;
+}
+
+progress::-webkit-progress-value {
+    background: darkred;
+}
+
+progress::-moz-progress-value {
+    background: darkred;
 }
 
 div#vulkan {
