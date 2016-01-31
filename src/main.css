@@ -17,19 +17,43 @@ li {
     text-align: left;
 }
 #headerbar div {
-    width: 96px;
+    width: 80px;
     display: inline-block;
 }
-#headerbar img {
+#headerbar img, #missions img {
     margin-right: 4px;
     height: 32px;
     width: 32px;
     vertical-align: bottom;
 }
+#missions div span {
+    white-space:nowrap;
+}
+.red {
+    color: #e21030;
+}
+.red img {
+    filter: grayscale(100%); -webkit-filter: grayscale(100%)
+}
+#headerbar {
+  overflow: visible;
+}
+#headerbar li .ressource-tooltip {
+  display: none;
+  position: absolute;
+  top: 50px; right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 5px;
+}
+#headerbar li:hover .ressource-tooltip {
+  display: block;
+}
 #sidebar, #headerbar, body {
     font-size: 22pt;
-    overflow: auto;
     background-color: #222;
+}
+#sidebar, body {
+    overflow: auto;
 }
 .number {
     margin-right: 64px;
@@ -90,7 +114,7 @@ li {
 }
 #button {
     background-color: #222;
-    padding: 4px 16px;
+    padding: 4px 16px 32px 16px;
 }
 
 
@@ -142,10 +166,39 @@ img.selected:hover {
 }
 */
 progress {
+    /* Reset the default appearance */
+    background-color: #222;
+    appearance: none;
     color: darkred;
     border: 0;
     width: 100%;
     height: 40px;
+}
+progress::-webkit-progress-bar {
+    /* Reset the default appearance */
+    background-color: #222;
+    appearance: none;
+    color: darkred;
+    border: 0;
+    width: 100%;
+    height: 40px;
+}
+progress::-moz-progress-bar {
+    /* Reset the default appearance */
+    background-color: darkred;
+    appearance: none;
+    color: darkred;
+    border: 0;
+    width: 100%;
+    height: 40px;
+}
+
+progress::-webkit-progress-value {
+    background: darkred;
+}
+
+progress::-moz-progress-value {
+    background: darkred;
 }
 
 div#vulkan {

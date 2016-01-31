@@ -24,18 +24,22 @@ class Quests {
         td1.addEventListener("click", function () {
             that.ritual();
         });
+        let inner_div = document.createElement("div");
+        td1.appendChild(inner_div);
+        inner_div.id = "button";
+        let demands_text = "Labolg demands:<br/>";
         for (let text in this._quest) {
             if (this._quest[text] > 0) {
                 // Opferbutton
-                let inner_div = document.createElement("div");
-                inner_div.id = "button";
-                inner_div.innerText += this._quest[text] + "x " + text;
+                demands_text += ' <span ';
                 if (this._quest[text] > resources[text]) {
-                    inner_div.setAttribute('style', 'color: #e21030;');
+                    demands_text += 'class="red"';
                 }
-                td1.appendChild(inner_div);
+                demands_text += '><img src="assets/icons/' + text +
+                                '.png">' + this._quest[text] + "</span>";
             }
         }
+        inner_div.innerHTML = demands_text;
 
         let progressBar = document.createElement('progress');
         progressBar.setAttribute('max', this._timerMax);
@@ -43,7 +47,6 @@ class Quests {
         let tr2 = document.createElement("tr");
         table.appendChild(tr2);
         tr2.appendChild(progressBar);
-
         return table;
     }
 
@@ -94,12 +97,9 @@ class Quests {
         this.updateUI();
     }
 
-    updateUI()
-    {
-        while (this._element.firstChild) {
-            this._element.removeChild(this._element.firstChild);
-        }
-        this._element.appendChild(this.getDom());
+    updateUI() {
+        this._element.removeChild(this._element.firstChild);
+        this._element.insertBefore(this.getDom(), this._element.firstChild);
     }
 
     tick(dt){
