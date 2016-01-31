@@ -15,9 +15,6 @@ class WellTile extends Tile {
 
     step()
     {
-        return
-        {
-            "water": 1,
-        };
+        return{ water: 1, };
     }
 };

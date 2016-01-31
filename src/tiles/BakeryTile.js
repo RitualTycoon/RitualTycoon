@@ -15,11 +15,6 @@ class BakeryTile extends Tile {
 
     step()
     {
-        return
-        {
-            "water": -1,
-            "flour": -4,
-            "breads": 1
-        };
+        return{water: -1, flour: -4, breads: 1};
     }
 };

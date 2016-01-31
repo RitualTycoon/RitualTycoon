@@ -15,9 +15,6 @@ class BananaFarmTile extends Tile {
 
     step()
     {
-        return
-        {
-            "bananas": 1
-        };
+        return{bananas: 1 };
     }
 };

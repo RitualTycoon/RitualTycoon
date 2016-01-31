@@ -15,11 +15,6 @@ class GoatFarmTile extends Tile {
 
     step()
     {
-        return
-        {
-            "water": -7,
-            "wheat": -10,
-            "goats": 1
-        };
+        return { water: -7,  wheat: -10, goats: 1 };
     }
 };

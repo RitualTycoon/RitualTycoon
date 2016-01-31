@@ -15,11 +15,6 @@ class BreweryTile extends Tile {
 
     step()
     {
-        return
-        {
-            "water": -2,
-            "wheat": -2,
-            "bear": 1
-        };
+        return{ water: -2,  wheat: -2, bear: 1};
     }
 };

@@ -15,10 +15,6 @@ class MonkeyHouseTile extends Tile {
 
     step()
     {
-        return
-        {
-            "bananas":-100,
-            "monkeys": 1
-        };
+        return{ bananas:-100, monkeys: 1};
     }
 };

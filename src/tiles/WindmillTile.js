@@ -15,10 +15,6 @@ class WindmillTile extends Tile {
 
     step()
     {
-        return
-        {
-            "wheat": -2,
-            "flour": 1
-        };
+        return{wheat: -2, flour: 1};
     }
 };

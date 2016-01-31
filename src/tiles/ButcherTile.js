@@ -15,11 +15,6 @@ class ButcherTile extends Tile {
 
     step()
     {
-        return
-        {
-            "water": -10,
-            "goats": -1,
-            "meat": 1
-        };
+        return{ water: -10,  goats: -1,  meat: 1};
     }
 };

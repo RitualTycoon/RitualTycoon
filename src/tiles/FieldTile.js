@@ -15,9 +15,6 @@ class FieldTile extends Tile {
 
     step()
     {
-        return
-        {
-            "wheat": 5,
-        };
+        return { wheat: 5, };
     }
 };

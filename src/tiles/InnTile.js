@@ -15,12 +15,6 @@ class InnTile extends Tile {
 
     step()
     {
-        return
-        {
-            "bear": -1,
-            "bread": -1,
-            "meat": -1,
-            "stew": 1
-        };
+        return{ bear: -1, bread: -1, meat: -1, stew: 1};
     }
 };

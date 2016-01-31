@@ -3,7 +3,8 @@
 let board = new Board(19,19);
 
 let resources = {
-    humansidle:  10,
+    livingspace: 0,
+    humansidle:  0,
     humansbusy:  0,
     water:    100,
     wheat:  0,
