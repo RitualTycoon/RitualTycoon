@@ -28,7 +28,6 @@ class Quests {
             if (this._quest[text] > 0) {
                 // Opferbutton
                 let inner_div = document.createElement("div");
-                console.log("asdf");
                 inner_div.id = "button";
                 inner_div.innerText += this._quest[text] + "x " + text;
                 if (this._quest[text] > resources[text]) {
@@ -107,7 +106,12 @@ class Quests {
         this._timer -=1;
         this.updateUI();
         if(this._timer <= 0 && !this.ritual(true) && !lost) {
-            alert('You loose!\nSacrifices:\n' +JSON.stringify(this._sacrificed));
+            let score = 0;
+            for (var key in this._sacrificed) {
+                if(key == 'humans') continue;
+                score += foodValue[key]*this._sacrificed[key];
+            }
+            alert('You Loose!\nFinal Score: '+score+'\nSacrifices:\n' +JSON.stringify(this._sacrificed));
             lost = true;
         }
     }
