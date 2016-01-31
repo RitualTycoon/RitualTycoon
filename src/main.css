@@ -51,6 +51,7 @@ li {
     height: 100%;
     z-index: 10;
     padding: 16px;
+    margin-top: 48px;
 }
 #sidebar > #missions {
     margin-bottom: 384px;
