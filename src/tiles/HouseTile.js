@@ -2,7 +2,7 @@
 
 class HouseTile extends Tile {
     constructor(row, column) {
-        super("wohnhaeuser.png", row, column);
+        super("wohnhaeuser.gif", row, column);
         this.counter = 10;
 		this.build_costs = {water: 50};
 		this.tooltip_name = "HOUSE";
