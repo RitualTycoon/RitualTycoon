@@ -17,6 +17,7 @@ class Tile {
         this.workingspeed = 40;
         this.production_needs = [];
         this._suspended = false;
+        this.adjacent_needs = [];
     }
 
     set suspended(s) {
