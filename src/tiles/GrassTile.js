@@ -22,7 +22,7 @@ class GrassTile extends Tile {
         // if (this.extra_space > 3) this.build_costs['wheat'] = 2;
         // if (this.extra_space > 6) this.build_costs['flour'] = 3;
         // if (this.extra_space > 9) this.build_costs['beer'] = 4;
-        // if (this.extra_space > 12) this.build_costs['breads'] = 5;
+        // if (this.extra_space > 12) this.build_costs['bread'] = 5;
         // if (this.extra_space > 15) this.build_costs['goats'] = 6;
         // if (this.extra_space > 18) this.build_costs['meat'] = 7;
         // if (this.extra_space > 21) this.build_costs['stew'] = 8;

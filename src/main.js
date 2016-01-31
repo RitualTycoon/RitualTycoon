@@ -10,7 +10,7 @@ let resources = {
     wheat:  0,
     flour:    0,
     beer: 0,
-    breads:   20,
+    bread: 20,
     goats: 0,
     meat:     0,
     stew: 0,
@@ -24,7 +24,7 @@ let foodValue = {
     wheat: 2,
     flour: 3,
     beer: 4,
-    breads: 6,
+    bread: 6,
     goats: 20,
     meat: 40,
     stew: 200,
@@ -131,7 +131,7 @@ window.onload = function() {
     grid.appendChild(table);
 };
 
-setTimeout(function() {
+setInterval(function() {
     for (let row of board.board) {
         for (let tile of row) {
             let newResources = tile.suspended ?  tile.step() : {};
