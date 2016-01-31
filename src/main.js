@@ -102,15 +102,17 @@ function build(index) {
 
     // Altes Tile abreißen:
     board.getTile(selected[0], selected[1]).tearDown();
-    
+
     let newTile = clickedTile.clone();
     newTile.row = selected[0];
     newTile.column = selected[1];
     board.setTile(newTile);
 	//Baukosten abziehen
-	for (let key in newTile.build_costs)
-	{
-		resources[key] -=  newTile.build_costs[key]
+	for (let key in newTile.build_costs) {
+		resources[key] -= newTile.build_costs[key];
+        if (key == "humansidle") {
+            resources["humansbusy"] += newTile.build_costs[key];
+        }
 	}
 	//Select wieder zurück setzen
     selected = [-1, -1];
