@@ -72,7 +72,7 @@ class Quests {
             resources[key] = resources[key] - this._quest[key];
             this._sacrificed[key] = this._sacrificed[key] ? this._sacrificed[key] + this._quest[key] : this._quest[key];
         }
-        this.increaseDifficulty(5+this._difficulty*0.07);
+        this.increaseDifficulty(5+this._difficulty*0.05);
         this.newQuest();
         return true;
     }
