@@ -15,6 +15,7 @@ class Tile {
 		this.tooltip_name = "TODO!!!";
         this.counter = 0;
         this.workingspeed = 40;
+        this.production_needs = [];
     }
 
     get disabled() {
@@ -24,10 +25,6 @@ class Tile {
     set disabled(d) {
         this._disabled = d;
         this.imgElement.setAttribute("style", d ? "opacity: 0.7" : "");
-    }
-
-    step() {
-        return {};
     }
 
     getDOM() {
@@ -53,19 +50,38 @@ class Tile {
     getUpgrades() {
         return ["none"];
     }
+
+    // Gebäude Baukosten
 	checkBuildCost()
 	{
-		for (let key in this.build_costs)
-		{
-            let a = this.build_costs[key] < 0;
-            let b = resources[key] > this.build_costs[key];
-            let res = a || b;
-			//if (this.build_costs[key] < 0 && resources[key] < this.build_costs[key])
-            if (res)
-            {
-				return false;
-			}
-		}
-		return true;
+        for (let key in this.build_costs) {
+            if (resources[key] < this.build_costs[key]) {
+                return true;
+            }
+        }
+        return false;
 	}
+
+    checkProductionCost()
+    {
+        for (let key in this.production_needs) {
+            if (resources[key] < this.production_needs[key]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    step() {
+        this.counter -= 1;
+        // Wenn produziert wird
+        if (this.counter <= 0) {
+            // resete counter
+            this.counter = this.workingspeed;
+            if (this.checkProductionCost()) {
+                return this.production_needs;
+            }
+        }
+        return {};
+    }
 }
