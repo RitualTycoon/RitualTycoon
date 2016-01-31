@@ -4,13 +4,17 @@ class WellTile extends Tile {
     constructor(row, column) {
         super("brunnen.gif", row, column);
         this.tooltip_name = "WELL";
-        this.build_costs = {humansidle: 1};
-        this.production_needs = { water: 1};
+        this.build_costs = { humansidle: 5 };
+        this.production = { water: 1 };
         this.counter = 1;
-        this.workingspeed = 1;
+        this.workingspeed = 5;
     }
 
     clone() {
         return new WellTile(this.row, this.column);
+    }
+
+    getUpgrades() {
+        return [new GrassTile(),]
     }
 };
