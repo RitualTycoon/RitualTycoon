@@ -8,7 +8,7 @@ class HouseTile extends Tile {
         this.adjacent_needs = [ new WellTile() ];
 		this.tooltip_name = "HOUSE";
         this.counter = 5;
-        this.workingspeed = 30;
+        this.workingspeed = 60;
         this.house_number = 0;
     }
 
