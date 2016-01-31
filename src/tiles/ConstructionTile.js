@@ -7,11 +7,11 @@ class ConstructionTile extends Tile {
         this.building = tile;
         this.progress = 2;
     }
-    
+
     step() {
         this.progress -= 1;
-        if(this.progress <= 0) {
-          board.setTile(this.building);
+        if (this.progress <= 0) {
+            replaceTile(this.building);
         }
         return {};
     }
