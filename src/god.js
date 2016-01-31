@@ -1,7 +1,7 @@
 "use strict";
 class Quests {
     constructor() {
-        this._difficulty = 5;
+        this._difficulty = 10;
         this._quest = {water: this._difficulty};
         this._questValue = this._difficulty;
         this._timerMax = 60;
@@ -94,7 +94,9 @@ class Quests {
         while (this._questValue < this._difficulty) {
             let demand = randomProperty(foodValue);
             let demandValue = foodValue[demand];
-            if ((this._questValue + demandValue) > this._difficulty) break;
+            console.log('god demands: '+demand + ' value: '+demandValue)
+            //if ((this._questValue + demandValue) > this._difficulty) break;
+            if(demandValue*10 > this._questValue) continue;
             this._questValue += demandValue;
             this._quest[demand] = this._quest[demand] ? 1 + this._quest[demand] : 1;
         }
