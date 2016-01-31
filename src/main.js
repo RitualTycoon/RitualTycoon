@@ -19,18 +19,22 @@ let resources = {
     //milk: 0,
 };
 
+let foodValue = {
+    water: 1,
+    wheat: 2,
+    flour: 3,
+    beer: 4,
+    breads: 6,
+    goats: 20,
+    meat: 40,
+    stew: 200,
+    bananas: 200,
+    monkeys: 200,
+};
+
 function foodToHuman(food, amount)
 {
-    if (food == "water")   return Math.ceil(amount / 200);
-    if (food == "wheat")   return Math.ceil(amount / 100);
-    if (food == "flour")   return Math.ceil(amount /  70);
-    if (food == "beer")    return Math.ceil(amount /  50);
-    if (food == "breads")  return Math.ceil(amount /  30);
-    if (food == "goats")   return Math.ceil(amount /  10);
-    if (food == "meat")    return Math.ceil(amount /   5);
-    if (food == "stew")    return Math.ceil(amount /   1);
-    if (food == "bananas") return Math.ceil(amount /   1);
-    if (food == "monkeys") return Math.ceil(amount /   1);
+    return Math.ceil(amount / foodValue[food]);
 }
 
 let selected = [-1, -1];
@@ -42,7 +46,7 @@ let startY;
 let cancelDragging = false;
 
 let buildMenu = new BuildMenu();
-let missionsMenu = new MissionsMenu();
+let quests = new Quests();
 
 document.getElementById("grid").addEventListener("mousemove", function(e) {
     if (startDragging &&
@@ -139,6 +143,7 @@ setInterval(function() {
     for (let resource in resources) {
         document.getElementById(resource).textContent = resources[resource];
     }
+    quests.tick(1000);
 }, 1000);
 
 document.addEventListener("keydown", function(e) {
