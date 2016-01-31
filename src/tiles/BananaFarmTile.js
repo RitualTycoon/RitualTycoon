@@ -13,4 +13,8 @@ class BananaFarmTile extends Tile {
     clone() {
         return new BananaFarmTile(this.row, this.column);
     }
+
+    getUpgrades() {
+        return [new GrassTile(),]
+    }
 };

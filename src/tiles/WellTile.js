@@ -13,4 +13,8 @@ class WellTile extends Tile {
     clone() {
         return new WellTile(this.row, this.column);
     }
+
+    getUpgrades() {
+        return [new GrassTile(),]
+    }
 };
