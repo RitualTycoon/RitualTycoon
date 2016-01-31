@@ -150,7 +150,7 @@ setInterval(function() {
         document.getElementById(resource).textContent = resources[resource];
     }
     quests.tick(1000);
-    buildMenu.updateTooltips();
+    buildMenu.updateTooltips(board.getTile(selected[0], selected[1]));
 }, 1000);
 
 document.addEventListener("keydown", function(e) {

@@ -44,18 +44,38 @@ class BuildMenu {
         }
     }
 
-    updateTooltips() {
+    updateTooltips(selected_tile) {
         for (let tooltip of this.tooltips) {
-            tooltip.dom.innerText = tooltip.tile.tooltip_name + "\n";
+            let html = tooltip.tile.tooltip_name;
+            if (tooltip.tile.adjacent_needs.length > 0) {
+                let red = !this.isNeighborProductionAvalible(selected_tile, tooltip.tile.adjacent_needs);
+                if (red) {
+                    html += '<span style="color: #e21030">';
+                }
+                html += "<br/>needs to be next to ";
+                let first = true;
+                for (let need of tooltip.tile.adjacent_needs) {
+                    if (!first) {
+                        html += ", ";
+                    }
+                    first = false;
+                    html += need.tooltip_name;
+                }
+                if (red) {
+                    html += "</span>";
+                }
+                html += "<br/>";
+            }
             for (let key in tooltip.tile.build_costs)
             {
                 let build_costs = parseInt(tooltip.tile.build_costs[key]);
                 if (resources[key] < build_costs) {
-                    tooltip.dom.innerHTML += '<br/><span style="color: #e21030">' + key + " " + build_costs + '</span>';
+                    html += '<br/><span style="color: #e21030">' + key + " " + build_costs + '</span>';
                 } else {
-                    tooltip.dom.innerHTML += "<br/>" + key + " " + build_costs;
+                    html += "<br/>" + key + " " + build_costs;
                 }
             }
+            tooltip.dom.innerHTML = html;
             tooltip.dom.className = "tooltip";
         }
     }
@@ -94,7 +114,7 @@ class BuildMenu {
         for (let availableTile of available) {
             for (let tile of this.tiles) {
                 if (availableTile.constructor === tile.constructor) {
-                    tile.disabled = !this.isNeighborProductionAvalible(clicked_tile, availableTile.adjacent_needs);
+                    tile.disabled = tile.checkBuildCost() || !this.isNeighborProductionAvalible(clicked_tile, availableTile.adjacent_needs);
                     //console.log(tile.tooltip_name + tile.checkBuildCost() + !this.isNeighborProductionAvalible(clicked_tile) + " "+ (tile.checkBuildCost() || (!this.isNeighborProductionAvalible(tile))))
                 }
             }
