@@ -52,6 +52,11 @@ li {
     z-index: 10;
     padding: 16px;
     margin-top: 48px;
+    background-image: url('assets/menubg.png');
+    background-size: 50% 50%;
+    image-rendering:-moz-crisp-edges; /* Firefox */
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
 }
 #sidebar > #missions {
     margin-bottom: 384px;
