@@ -131,7 +131,7 @@ window.onload = function() {
     grid.appendChild(table);
 };
 
-setInterval(function() {
+setTimeout(function() {
     for (let row of board.board) {
         for (let tile of row) {
             let newResources = tile.suspended ?  tile.step() : {};

@@ -25,7 +25,8 @@ class Quests {
                 let td2 = document.createElement("td");
                 table.appendChild(tr);
                 tr.appendChild(td1);
-                tr.appendChild(td2);
+                // TODO: Fürs Menschen opfern auskommentieren:
+                // tr.appendChild(td2);
 
                 //Opferbutton und Menschenopferbutton
                 let inner_div = document.createElement("div");
