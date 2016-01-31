@@ -68,7 +68,7 @@ class Tile {
 	{
         for (let key in this.build_costs) {
             if (resources[key] < this.build_costs[key]) {
-                return true; //disabeld = true
+                return true; //disabled = true
             }
         }
         return false;
