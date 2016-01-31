@@ -46,7 +46,7 @@ class BuildMenu {
 
     updateTooltips() {
         for (let tooltip of this.tooltips) {
-            tooltip.dom.innerText = tooltip.tile.tooltip_name;
+            tooltip.dom.innerText = tooltip.tile.tooltip_name + "\n";
             for (let key in tooltip.tile.build_costs)
             {
                 let build_costs = parseInt(tooltip.tile.build_costs[key]);
