@@ -90,14 +90,9 @@ li {
 }
 #button {
     background-color: #222;
-    padding: 16px;
-    height: 15px;
+    padding: 4px 16px;
 }
 
-#security_humans {
-  width: 49px;
-  height: 49px;
-}
 
 #sidebar > #buildmenu {
     position: absolute;
