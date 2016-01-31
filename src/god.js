@@ -2,7 +2,7 @@
 class Quests {
     constructor() {
         this._difficulty = 10;
-        this._quest = {water: this._difficulty};
+        this._quest = { water: this._difficulty };
         this._questValue = this._difficulty;
         this._timerMax = 5;
         this._timer = this._timerMax;
@@ -14,27 +14,26 @@ class Quests {
     getDom() {
         let table = document.createElement("table");
 
-        //Add Eventhandler
+        // Add Eventhandler
         let that = this;
 
+        let tr1 = document.createElement("tr");
+        let td1 = document.createElement("td");
+        table.appendChild(tr1);
+        tr1.appendChild(td1);
+        td1.addEventListener("click", function () {
+            that.ritual();
+        });
         for (let text in this._quest) {
             if (this._quest[text] > 0) {
-                //Table
-                let tr = document.createElement("tr");
-                let td1 = document.createElement("td");
-                let td2 = document.createElement("td");
-                table.appendChild(tr);
-                tr.appendChild(td1);
-
-                //Opferbutton und Menschenopferbutton
+                // Opferbutton
                 let inner_div = document.createElement("div");
+                console.log("asdf");
                 inner_div.id = "button";
-                inner_div.innerText = this._quest[text] + "x " + text;
-                if(this._quest[text] > resources[text])
-                    tr.setAttribute('style', 'opacity: 0.3;');
-                td1.addEventListener("click", function () {
-                    that.ritual();
-                });
+                inner_div.innerText += this._quest[text] + "x " + text;
+                if (this._quest[text] > resources[text]) {
+                    inner_div.setAttribute('style', 'color: #e21030;');
+                }
                 td1.appendChild(inner_div);
             }
         }
@@ -42,9 +41,9 @@ class Quests {
         let progressBar = document.createElement('progress');
         progressBar.setAttribute('max', this._timerMax);
         progressBar.setAttribute('value', this._timerMax - this._timer);
-        let tr = document.createElement("tr");
-        table.appendChild(tr);
-        tr.appendChild(progressBar);
+        let tr2 = document.createElement("tr");
+        table.appendChild(tr2);
+        tr2.appendChild(progressBar);
 
         return table;
     }
