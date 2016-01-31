@@ -14,6 +14,14 @@ ul {
 li {
     display: inline;
     margin-left: 16px;
+    text-align: left;
+}
+#headerbar div {
+    width: 96px;
+    display: inline-block;
+}
+#headerbar img {
+    margin-right: 4px;
 }
 #sidebar, #headerbar, body {
     font-size: 22pt;
@@ -35,12 +43,12 @@ li {
     display: none;
 }
 #headerbar {
-    padding: 8px 32px;
+    padding: 0 48px;
     position: fixed;
     top: 0;
     right: 0;
     left: 416px;
-    height: 32px;
+    height: 40px;
     z-index: 10;
     text-align: right;
 }
