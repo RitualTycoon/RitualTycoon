@@ -82,14 +82,14 @@ class BuildMenu {
 
     isNeighborProductionAvalible(tile, needs) {
         let neighbors = [];
-        neighbors.push( board.getTile(tile.row -1, tile.column -1) );
+//         neighbors.push( board.getTile(tile.row -1, tile.column -1) );
         neighbors.push( board.getTile(tile.row -1, tile.column ) );
-        neighbors.push( board.getTile(tile.row -1, tile.column +1) );
+//         neighbors.push( board.getTile(tile.row -1, tile.column +1) );
         neighbors.push( board.getTile(tile.row , tile.column -1) );
         neighbors.push( board.getTile(tile.row , tile.column +1) );
-        neighbors.push( board.getTile(tile.row +1, tile.column -1) );
+//         neighbors.push( board.getTile(tile.row +1, tile.column -1) );
         neighbors.push( board.getTile(tile.row +1, tile.column ) );
-        neighbors.push( board.getTile(tile.row +1, tile.column +1) );
+//         neighbors.push( board.getTile(tile.row +1, tile.column +1) );
 
         for (let need of needs) {
             let fullfilled = false;
