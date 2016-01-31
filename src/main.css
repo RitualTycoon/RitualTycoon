@@ -17,14 +17,23 @@ li {
     text-align: left;
 }
 #headerbar div {
-    width: 96px;
+    width: 80px;
     display: inline-block;
 }
-#headerbar img {
+#headerbar img, #missions img {
     margin-right: 4px;
     height: 32px;
     width: 32px;
     vertical-align: bottom;
+}
+#missions div span {
+    white-space:nowrap;
+}
+.red {
+    color: #e21030;
+}
+.red img {
+    filter: grayscale(100%); -webkit-filter: grayscale(100%)
 }
 #headerbar {
   overflow: visible;
@@ -105,7 +114,7 @@ li {
 }
 #button {
     background-color: #222;
-    padding: 4px 16px;
+    padding: 4px 16px 32px 16px;
 }
 
 
