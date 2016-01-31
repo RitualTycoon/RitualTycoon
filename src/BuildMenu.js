@@ -45,14 +45,57 @@ class BuildMenu {
         }
     }
 
-    setUpgrades(available) {
+    isNeighborProductionAvalible(tile)
+    {
+        let needs = [];
+        for (let key in tile.production_needs)
+        {
+            if (tile.production_needs[key] < 0)
+            {
+                needs.push(key);
+            }
+        }
+        let neighbors = [];
+        neighbors.push( board.getTile(tile.row -1, tile.column -1) );
+        neighbors.push( board.getTile(tile.row -1, tile.column ) );
+        neighbors.push( board.getTile(tile.row -1, tile.column +1) );
+        neighbors.push( board.getTile(tile.row , tile.column -1) );
+        neighbors.push( board.getTile(tile.row , tile.column +1) );
+        neighbors.push( board.getTile(tile.row +1, tile.column -1) );
+        neighbors.push( board.getTile(tile.row +1, tile.column ) );
+        neighbors.push( board.getTile(tile.row +1, tile.column +1) );
+
+        for (let need in needs)
+        {
+            for (let neighbor in neighbors)
+            {
+                if (neighbors[neighbor].production_needs.indexOf(need) != -1)
+                {
+                    let ax = neighbors[neighbor].production_needs.indexOf(need);
+                    neighbors[neighbor].production_needs.splice(ax, 1);
+                }
+            }
+        }
+        if (needs.length == 0)
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    setUpgrades(clicked_tile) {
+        let available = clicked_tile.getUpgrades()
+        console.log(clicked_tile.row);
         for (let tile of this.tiles) {
             tile.disabled = true;
         }
         for (let availableTile of available) {
             for (let tile of this.tiles) {
                 if (availableTile.constructor === tile.constructor) {
-                    tile.disabled = tile.checkBuildCost();
+                    tile.disabled = tile.checkBuildCost() || (!this.isNeighborProductionAvalible(clicked_tile));
+                    //console.log(tile.tooltip_name + tile.checkBuildCost() + !this.isNeighborProductionAvalible(clicked_tile) + " "+ (tile.checkBuildCost() || (!this.isNeighborProductionAvalible(tile))))
                 }
             }
         }

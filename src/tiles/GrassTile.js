@@ -5,6 +5,7 @@ class GrassTile extends Tile {
         super("grasland.png", row, column);
 		this.build_costs = {water: 50};
 		this.tooltip_name = "GRASS";
+        this.extra_space = 0;
     }
 
     getUpgrades() {
@@ -14,6 +15,17 @@ class GrassTile extends Tile {
         new InnTile(), new BananaFarmTile(), new MonkeyHouseTile(),]
     }
     clone() {
+        this.extra_space += 1;
+        for (let key in this.build_costs)
+            this.build_costs['key'] *= 2;
+        if (this.extra_space > 3) this.build_costs['wheat'] = 2;
+        if (this.extra_space > 6) this.build_costs['flour'] = 3;
+        if (this.extra_space > 9) this.build_costs['beer'] = 4;
+        if (this.extra_space > 12) this.build_costs['breads'] = 5;
+        if (this.extra_space > 15) this.build_costs['goats'] = 6;
+        if (this.extra_space > 18) this.build_costs['meat'] = 7;
+        if (this.extra_space > 21) this.build_costs['stew'] = 8;
+        if (this.extra_space > 24) this.build_costs['bananas'] = 9;
         return new GrassTile(this.row, this.column);
     }
 };

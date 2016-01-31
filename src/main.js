@@ -88,7 +88,7 @@ function selectTile(row, column) {
         selected = [row, column];
         tile.select();
         let upgrades = tile.getUpgrades();
-        buildMenu.setUpgrades(upgrades);
+        buildMenu.setUpgrades(tile);
         if(upgrades.length == 0) tile.suspended = !tile.suspended;
         //console.log(board.getTile(row, column).canUpgradeTo());
     }
@@ -101,6 +101,7 @@ function build(index) {
     }
     let newTile = clickedTile.clone();
     newTile.row = selected[0];
+    console.log("ahskdja" + selected[0]);
     newTile.column = selected[1];
     board.setTile(newTile);
 	//Baukosten abziehen

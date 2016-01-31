@@ -73,7 +73,7 @@ li {
 
 #sidebar > #buildmenu {
     position: absolute;
-    bottom: 48px;
+    bottom: 90px;
 }
 tr, td, table {
     margin: 0;
@@ -107,11 +107,14 @@ img {
 .selected {
     opacity: 0.75;
 }
-.suspended {
+
+.suspended::before {
+    background-image: image('assets/pause.png');
     color: rgb(100%, 0%, 0%);
     color: rgba(100%, 0%, 0%, 0.75);
     opacity: 0.2;
 }
+
 div#vulkan {
     position:relative;
 }
