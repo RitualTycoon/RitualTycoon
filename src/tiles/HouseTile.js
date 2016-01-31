@@ -6,7 +6,7 @@ class HouseTile extends Tile {
 		this.build_costs = {water: 10};
 		this.tooltip_name = "HOUSE";
         this.counter = 5;
-        this.workingspeed = 40;
+        this.workingspeed = 30;
         this.house_number = 0;
     }
 
@@ -43,6 +43,7 @@ class HouseTile extends Tile {
         }
 
         if (resources['livingspace'] >= receipe['humansidle']) {
+            this.counter = this.workingspeed;
             return receipe;
         } else {
             return { };
