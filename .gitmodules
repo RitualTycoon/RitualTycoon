@@ -1,6 +1,3 @@
-[submodule "Quintus"]
-	path = Quintus
-	url = https://github.com/cykod/Quintus
 [submodule "dragscroll"]
 	path = dragscroll
 	url = https://github.com/asvd/dragscroll
