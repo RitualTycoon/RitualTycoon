@@ -83,14 +83,14 @@ function selectTile(row, column) {
     tile = board.getTile(row, column);
     if (row == selected[0] && column == selected[1]) {
         selected = [-1, -1];
-        if(tile.getUpgrades().length == 0) tile.suspended = !tile.suspended
+        // if(tile.getUpgrades().length == 0) tile.suspended = !tile.suspended
     } else {
         selected = [row, column];
         tile.select();
         let upgrades = tile.getUpgrades();
         buildMenu.setUpgrades(tile);
-        if(upgrades.length == 0) tile.suspended = !tile.suspended;
-        //console.log(board.getTile(row, column).canUpgradeTo());
+        // if(upgrades.length == 0) tile.suspended = !tile.suspended;
+        // console.log(board.getTile(row, column).canUpgradeTo());
     }
 }
 
