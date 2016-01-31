@@ -97,7 +97,7 @@ class BuildMenu {
 
     setUpgrades(clicked_tile) {
         let available = clicked_tile.getUpgrades()
-        console.log(clicked_tile.row);
+        // console.log(clicked_tile.row);
         for (let tile of this.tiles) {
             tile.disabled = true;
         }
