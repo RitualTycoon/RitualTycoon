@@ -2,7 +2,7 @@
 
 class ConstructionTile extends Tile {
     constructor(tile) {
-        super("build.png", tile.row, tile.column);
+        super("build.gif", tile.row, tile.column);
 //         this.tooltip_name = "UNDER CONSTRUCTION...";
         this.building = tile;
         this.progress = 2;
