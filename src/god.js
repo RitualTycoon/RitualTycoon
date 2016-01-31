@@ -4,7 +4,7 @@ class Quests {
         this._difficulty = 10;
         this._quest = {water: this._difficulty};
         this._questValue = this._difficulty;
-        this._timerMax = 60;
+        this._timerMax = 5;
         this._timer = this._timerMax;
         this._element = document.getElementById("missions");
         this._sacrificed = {};
@@ -108,7 +108,12 @@ class Quests {
         this._timer -=1;
         this.updateUI();
         if(this._timer <= 0 && !this.ritual(true) && !lost) {
-            alert('You loose!\nSacrifices:\n' +JSON.stringify(this._sacrificed));
+            let score = 0;
+            for (var key in this._sacrificed) {
+                if(key == 'humans') continue;
+                score += foodValue(key)*this._sacrificed[key];
+            }
+            alert('You Loose!\nFinal Score: '+score+'\nSacrifices:\n' +JSON.stringify(this._sacrificed));
             lost = true;
         }
     }
