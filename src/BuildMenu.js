@@ -105,16 +105,16 @@ class BuildMenu {
         return true;
     }
 
-    setUpgrades(clicked_tile) {
-        let available = clicked_tile.getUpgrades()
-        // console.log(clicked_tile.row);
+    setUpgrades(selected_tile) {
+        this.updateTooltips(selected_tile);
+        let available = selected_tile.getUpgrades()
         for (let tile of this.tiles) {
             tile.disabled = true;
         }
         for (let availableTile of available) {
             for (let tile of this.tiles) {
                 if (availableTile.constructor === tile.constructor) {
-                    tile.disabled = tile.checkBuildCost() || !this.isNeighborProductionAvalible(clicked_tile, availableTile.adjacent_needs);
+                    tile.disabled = tile.checkBuildCost() || !this.isNeighborProductionAvalible(selected_tile, availableTile.adjacent_needs);
                     //console.log(tile.tooltip_name + tile.checkBuildCost() + !this.isNeighborProductionAvalible(clicked_tile) + " "+ (tile.checkBuildCost() || (!this.isNeighborProductionAvalible(tile))))
                 }
             }
