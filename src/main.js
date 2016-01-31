@@ -106,7 +106,7 @@ function build(index) {
     let newTile = clickedTile.clone();
     newTile.row = selected[0];
     newTile.column = selected[1];
-    board.setTile(newTile);
+    board.setTile(new ConstructionTile(newTile));
 	//Baukosten abziehen
 	for (let key in newTile.build_costs) {
 		resources[key] -= newTile.build_costs[key];
@@ -150,7 +150,7 @@ setInterval(function() {
         document.getElementById(resource).textContent = resources[resource];
     }
     quests.tick(1000);
-    buildMenu.updateTooltips();
+    buildMenu.updateTooltips(board.getTile(selected[0], selected[1]));
 }, 1000);
 
 document.addEventListener("keydown", function(e) {
