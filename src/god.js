@@ -4,14 +4,14 @@ class Quests {
         this._difficulty = 5;
         this._quest = {water: 5};
         this._questValue = 5;
+        this._timer = 100;
+        this._timerMax = 100;
         this._element = document.getElementById("missions");
         this.newQuest();
     }
 
     getDom() {
-        let div = document.createElement("div");
         let table = document.createElement("table");
-        div.id = "quests";
 
         //Add Eventhandler
         let that = this;
@@ -62,6 +62,13 @@ class Quests {
             }
         }
 
+        let progressBar = document.createElement('progress');
+        progressBar.setAttribute('max', this._timerMax);
+        progressBar.setAttribute('value', this._timerMax - this._timer);
+        let tr = document.createElement("tr");
+        table.appendChild(tr);
+        tr.appendChild(progressBar);
+
         return table;
     }
 
@@ -82,9 +89,11 @@ class Quests {
             this._questValue += demandValue;
             this._quest[demand] = this._quest[demand] ? 1 + this._quest[demand] : 1;
         }
+        this._timer = this._timerMax;
     }
 
     tick(dt){
+        this._timer -=1;
         //UI updaten
         while (this._element.firstChild) {
             this._element.removeChild(this._element.firstChild);
